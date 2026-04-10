@@ -116,7 +116,7 @@
       hero_desc:
         "Aspiring AI engineer with strong ML/data skills; seeking early opportunities in professional teams while building efficient AI systems with real impact.",
       hero_quote:
-        "Long term: build optimized AI solutions that deliver real value.",
+        "Any fool can write code that a computer can understand. Good programmers write code that humans can understand.",
       hero_location: "Ho Chi Minh City, Vietnam",
       edu_hero_title: "Hoa Sen University",
       edu_hero_desc:
