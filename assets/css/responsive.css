@@ -67,6 +67,9 @@
   .hero-quote {
     max-width: 100%;
   }
+  .hero-facts span {
+    width: 100%;
+  }
   .exp-timeline {
     gap: 14px;
   }
@@ -92,6 +95,9 @@
   .btn {
     width: 100%;
     justify-content: center;
+  }
+  .actions .btn {
+    width: auto;
   }
   .title {
     font-size: 22px;

@@ -184,6 +184,9 @@ section {
   gap: 12px;
   margin-bottom: 18px;
 }
+.compact-head {
+  margin-top: 18px;
+}
 .section-title {
   font-size: 30px;
   font-weight: 800;
@@ -232,11 +235,23 @@ section {
 .project-card {
   border-radius: 20px;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 .project-card h3 {
   font-size: 20px;
   margin: 8px 0;
 }
+.project-bullets {
+  margin-top: 8px;
+  display: grid;
+  gap: 6px;
+}
+.card-action {
+  margin-top: auto;
+  padding-top: 12px;
+}
+
 .hero-spotlight {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -285,6 +300,26 @@ section {
   max-width: 640px;
   color: rgba(232, 238, 252, 0.9);
   font-size: 16px;
+}
+.hero-facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.hero-facts span {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  color: #dfe5ff;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  font-size: 13px;
+  font-weight: 700;
+}
+.hero-facts i {
+  color: var(--accent);
 }
 .hero-actions {
   display: flex;
