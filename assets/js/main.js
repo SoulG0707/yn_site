@@ -84,7 +84,7 @@
     </section>
 
     <section id="projects">
-        <div class="section-head"><div><div class="section-label" data-i18n="projects_title">Projects</div><div class="section-title" data-i18n="projects_sub">RAG, OCR, and computer vision builds.</div></div></div>
+        <div class="section-head"><div><div class="section-label" data-i18n="projects_title">Projects</div><div class="section-title" data-i18n="projects_sub">Fullstack AI, computer vision, and LLM applications.</div></div></div>
         <div class="grid three" id="projects-grid"></div>
     </section>
 
@@ -109,9 +109,9 @@
 
   const content = {
     en: {
-      meta_title: "Pham Thi Yen Ngoc | AI Engineer Intern",
+      meta_title: "Pham Thi Yen Ngoc | AI Engineer",
       meta_desc:
-        "AI Engineer Intern portfolio focused on machine learning, RAG, knowledge graphs, OCR, and computer vision.",
+        "AI Engineer portfolio focused on machine learning, computer vision, LLM applications, backend systems, and deployment.",
       nav_about: "About",
       nav_skills: "Skills",
       nav_education: "Education",
@@ -120,37 +120,34 @@
       nav_contact: "Contact",
       btn_cv: "CV",
       btn_download_cv: "Download CV",
-      hero_eyebrow: "AI Engineer Intern",
-      hero_alias: "Machine Learning · RAG · Computer Vision",
+      hero_eyebrow: "AI Engineer",
+      hero_alias: "Machine Learning · Fullstack · LLM & AI Tools",
       hero_desc:
-        "Aspiring AI engineer with a strong foundation in machine learning and data processing, seeking opportunities to gain experience and contribute to efficient, high-impact AI systems that deliver real value.",
+        "Aspiring AI engineer with a strong foundation in machine learning and data processing, seeking opportunities to gain experience and contribute to building efficient, high-impact AI systems that deliver real value.",
       hero_quote:
-        "Focused on practical AI systems: retrieval, document understanding, OCR, and knowledge-driven Q&A.",
+        "Building practical AI products across machine learning, computer vision, LLM applications, backend systems, and deployment.",
       skills_title: "Skills",
       skills_sub: "AI/ML, data processing, deployment.",
       skills: [
         {
           title: "Programming & Frontend",
-          tags: ["Python", "SQL", "React.js", "Next.js", "Figma"],
+          tags: ["Python", "JavaScript", "TypeScript", "React.js", "Next.js", "Vite", "HTML/CSS"],
         },
         {
-          title: "AI/ML & Data",
-          tags: [
-            "RAG",
-            "Embeddings",
-            "Semantic Search",
-            "Knowledge Graph",
-            "Neo4j",
-            "Vector Search",
-          ],
+          title: "AI/ML & Computer Vision",
+          tags: ["TensorFlow", "PyTorch", "OpenCV", "YOLO", "Tesseract OCR"],
         },
         {
-          title: "Backend & DevOps",
-          tags: ["REST APIs", "Cloudflare Workers", "Docker", "Nginx", "PM2"],
+          title: "LLM & AI Tools",
+          tags: ["Ollama", "LlamaIndex", "Transformers", "OpenAI API", "Gemini API", "MCP"],
         },
         {
-          title: "Tools",
-          tags: ["OpenCV", "YOLOv8", "Tesseract OCR", "LlamaIndex"],
+          title: "Backend & Database",
+          tags: ["FastAPI", "Node.js", "Express.js", "SQLAlchemy", "SQLite", "MySQL", "PostgreSQL", "SQL Server", "Neo4j"],
+        },
+        {
+          title: "DevOps & Deployment",
+          tags: ["Docker", "Cloudflare Workers", "IIS"],
         },
       ],
       edu_title: "Education",
@@ -161,23 +158,34 @@
           place: "Hoa Sen University",
           title: "Bachelor of Science in Artificial Intelligence",
           desc: "Completed the Artificial Intelligence program with a GPA of 3.2/4.0; awaiting degree conferral.",
+          bullets: [
+            "Relevant coursework: Machine Learning, Object-Oriented Programming (OOP), Database Systems, and other specialized courses in Artificial Intelligence.",
+          ],
         },
       ],
       cert_title: "Certifications",
       cert_sub: "English proficiency.",
       certs: [
-        "TOEIC Listening & Reading: 635 (2024)",
-        "TOEIC Speaking & Writing: 240 (2024)",
+        "TOEIC Listening & Reading: 635, Speaking & Writing: 240 (2024)",
       ],
       exp_title: "Work Experience",
-      exp_sub: "AI agents and document Q&A systems.",
+      exp_sub: "Fullstack development, AI agents, and document Q&A systems.",
       experience: [
+        {
+          time: "Aug 2026 - Present",
+          company: "Trung Tâm Lưu Trữ Quốc Gia II",
+          role: "Fullstack Developer",
+          bullets: [
+            "Contributed to the development and completion of the website for Vietnam National Archives II.",
+            "Contributed to developing and implementing features for web and mobile applications of the Ho Chi Minh City Youth Volunteer Force.",
+          ],
+        },
         {
           time: "Mar 2026 - Jun 2026",
           company: "Trung Tâm Lưu Trữ Quốc Gia II",
           role: "AI Engineer Intern",
           bullets: [
-            "Built an AI agent to provide information and answer questions about heroic armed forces personnel records in Long An Province.",
+            "Developed a Vietnamese AI chatbot for querying People's Armed Forces Heroes records in Long An Province.",
           ],
         },
         {
@@ -185,45 +193,35 @@
           company: "Trung Tâm Lưu Trữ Quốc Gia II",
           role: "AI/ML Engineer Intern",
           bullets: [
-            "Processed administrative documents from Ho Chi Minh City and Binh Duong.",
-            "Built a Q&A chatbot for administrative documents.",
+            "Processed administrative documents from Ho Chi Minh City and Binh Duong, built a Q&A chatbot for administrative documents.",
           ],
         },
       ],
       projects_title: "Projects",
-      projects_sub: "RAG, OCR, and computer vision builds.",
+      projects_sub: "Fullstack AI, computer vision, and LLM applications.",
       projects: [
         {
           date: "Jul 2025 - Dec 2025",
-          badge: "RAG · Neo4j",
+          badge: "Next.js · FastAPI · MCP",
           title: "Tourism AI Chatbot",
-          desc: "Built an AI-powered chatbot using RAG, Neo4j Knowledge Graph, and Cloudflare Workers, enabling semantic Q&A with contextual understanding.",
-          bullets: [
-            "Developed a fullstack system with React/Next.js and APIs.",
-            "Used knowledge graph and semantic retrieval to improve contextual answers.",
-          ],
+          desc: "Built a full-stack AI tourism chatbot using Next.js, React, FastAPI, Neo4j, Cloudflare Workers, and LLaMA4; implemented MCP-based backend services and conversational memory.",
+          bullets: [],
           link: "https://github.com/SoulG0707/chatbot_tourism_AI",
         },
         {
           date: "Nov 2024 - Jan 2025",
-          badge: "YOLOv8 · OCR",
+          badge: "YOLO · TensorFlow · OCR",
           title: "Handwritten Digit Recognition",
-          desc: "Built a handwritten date recognition system using YOLOv8, Tesseract OCR, and CNN.",
-          bullets: [
-            "Applied OpenCV preprocessing for image cleanup and region extraction.",
-            "Developed a PyQt5 GUI for interaction and recognition workflow.",
-          ],
+          desc: "Built a handwritten date recognition system using Ultralytics YOLO, OpenCV, TensorFlow/Keras CNN, and Tesseract OCR; developed the desktop interface with PyQt5.",
+          bullets: [],
           link: "https://github.com/SoulG0707/Handwritten_digit_recognition",
         },
         {
           date: "Apr 2024 - Jul 2024",
-          badge: "OpenCV",
+          badge: "OpenCV · dlib · PyQt5",
           title: "Face Recognition",
-          desc: "Built a real-time face recognition system using OpenCV and face_recognition.",
-          bullets: [
-            "Stored attendance data in MySQL.",
-            "Developed UI and admin features for attendance management.",
-          ],
+          desc: "Built a real-time face recognition attendance system using OpenCV, dlib, face_recognition, PyQt5, and MySQL.",
+          bullets: [],
           link: "https://github.com/SoulG0707/Face_Recognition",
         },
       ],
@@ -272,9 +270,9 @@
       footer: "© 2026 • Pham Thi Yen Ngoc • AI Engineer Portfolio",
     },
     vi: {
-      meta_title: "Phạm Thị Yến Ngọc | AI Engineer Intern",
+      meta_title: "Phạm Thị Yến Ngọc | AI Engineer",
       meta_desc:
-        "Portfolio AI Engineer Intern tập trung vào machine learning, RAG, knowledge graph, OCR và computer vision.",
+        "Portfolio AI Engineer tập trung vào machine learning, computer vision, ứng dụng LLM, hệ thống backend và triển khai.",
       nav_about: "Giới thiệu",
       nav_skills: "Kỹ năng",
       nav_education: "Học vấn",
@@ -283,37 +281,34 @@
       nav_contact: "Liên hệ",
       btn_cv: "CV",
       btn_download_cv: "Tải CV",
-      hero_eyebrow: "AI Engineer Intern",
-      hero_alias: "Machine Learning · RAG · Computer Vision",
+      hero_eyebrow: "AI Engineer",
+      hero_alias: "Machine Learning · Fullstack · LLM & AI Tools",
       hero_desc:
-        "Ứng viên AI Engineer có nền tảng tốt về machine learning và xử lý dữ liệu, mong muốn tích lũy kinh nghiệm và đóng góp vào các hệ thống AI hiệu quả, có tác động thực tế.",
+        "Ứng viên AI Engineer có nền tảng tốt về machine learning và xử lý dữ liệu, mong muốn tích lũy kinh nghiệm và đóng góp vào việc xây dựng các hệ thống AI hiệu quả, có tác động thực tế.",
       hero_quote:
-        "Tập trung vào hệ thống AI thực tiễn: truy xuất thông tin, hiểu tài liệu, OCR và hỏi đáp dựa trên tri thức.",
+        "Xây dựng sản phẩm AI thực tiễn với machine learning, computer vision, ứng dụng LLM, backend và triển khai.",
       skills_title: "Kỹ năng",
       skills_sub: "AI/ML, xử lý dữ liệu, triển khai.",
       skills: [
         {
           title: "Lập trình & Frontend",
-          tags: ["Python", "SQL", "React.js", "Next.js", "Figma"],
+          tags: ["Python", "JavaScript", "TypeScript", "React.js", "Next.js", "Vite", "HTML/CSS"],
         },
         {
-          title: "AI/ML & Dữ liệu",
-          tags: [
-            "RAG",
-            "Embeddings",
-            "Semantic Search",
-            "Knowledge Graph",
-            "Neo4j",
-            "Vector Search",
-          ],
+          title: "AI/ML & Computer Vision",
+          tags: ["TensorFlow", "PyTorch", "OpenCV", "YOLO", "Tesseract OCR"],
         },
         {
-          title: "Backend & DevOps",
-          tags: ["REST APIs", "Cloudflare Workers", "Docker", "Nginx", "PM2"],
+          title: "LLM & Công cụ AI",
+          tags: ["Ollama", "LlamaIndex", "Transformers", "OpenAI API", "Gemini API", "MCP"],
         },
         {
-          title: "Công cụ",
-          tags: ["OpenCV", "YOLOv8", "Tesseract OCR", "LlamaIndex"],
+          title: "Backend & Cơ sở dữ liệu",
+          tags: ["FastAPI", "Node.js", "Express.js", "SQLAlchemy", "SQLite", "MySQL", "PostgreSQL", "SQL Server", "Neo4j"],
+        },
+        {
+          title: "DevOps & Triển khai",
+          tags: ["Docker", "Cloudflare Workers", "IIS"],
         },
       ],
       edu_title: "Học vấn",
@@ -324,23 +319,34 @@
           place: "Hoa Sen University",
           title: "Cử nhân Khoa học ngành Trí tuệ Nhân tạo",
           desc: "Hoàn thành chương trình Trí tuệ Nhân tạo với GPA 3.2/4.0; đang chờ cấp bằng.",
+          bullets: [
+            "Môn học liên quan: Machine Learning, Lập trình hướng đối tượng (OOP), Hệ quản trị cơ sở dữ liệu và các môn chuyên ngành Trí tuệ Nhân tạo khác.",
+          ],
         },
       ],
       cert_title: "Chứng chỉ",
       cert_sub: "Năng lực tiếng Anh.",
       certs: [
-        "TOEIC Listening & Reading: 635 (2024)",
-        "TOEIC Speaking & Writing: 240 (2024)",
+        "TOEIC Listening & Reading: 635, Speaking & Writing: 240 (2024)",
       ],
       exp_title: "Kinh nghiệm làm việc",
-      exp_sub: "AI agent và hệ thống hỏi đáp tài liệu.",
+      exp_sub: "Phát triển fullstack, AI agent và hệ thống hỏi đáp tài liệu.",
       experience: [
+        {
+          time: "08/2026 - hiện tại",
+          company: "Trung Tâm Lưu Trữ Quốc Gia II",
+          role: "Fullstack Developer",
+          bullets: [
+            "Đóng góp phát triển và hoàn thiện website của Trung tâm Lưu trữ Quốc gia II.",
+            "Đóng góp phát triển và triển khai các tính năng cho ứng dụng web và mobile của Lực lượng Thanh niên Xung phong Thành phố Hồ Chí Minh.",
+          ],
+        },
         {
           time: "03/2026 - 06/2026",
           company: "Trung Tâm Lưu Trữ Quốc Gia II",
           role: "AI Engineer Intern",
           bullets: [
-            "Xây dựng AI agent cung cấp thông tin và trả lời câu hỏi về hồ sơ lực lượng vũ trang anh hùng tại tỉnh Long An.",
+            "Phát triển chatbot AI tiếng Việt để tra cứu hồ sơ các Anh hùng Lực lượng vũ trang nhân dân tại tỉnh Long An.",
           ],
         },
         {
@@ -348,45 +354,35 @@
           company: "Trung Tâm Lưu Trữ Quốc Gia II",
           role: "AI/ML Engineer Intern",
           bullets: [
-            "Xử lý tài liệu hành chính từ TP. Hồ Chí Minh và Bình Dương.",
-            "Xây dựng chatbot hỏi đáp cho tài liệu hành chính.",
+            "Xử lý tài liệu hành chính từ TP. Hồ Chí Minh và Bình Dương, xây dựng chatbot hỏi đáp cho tài liệu hành chính.",
           ],
         },
       ],
       projects_title: "Dự án",
-      projects_sub: "RAG, OCR và computer vision.",
+      projects_sub: "Ứng dụng AI fullstack, computer vision và LLM.",
       projects: [
         {
           date: "07/2025 - 12/2025",
-          badge: "RAG · Neo4j",
+          badge: "Next.js · FastAPI · MCP",
           title: "Tourism AI Chatbot",
-          desc: "Xây chatbot AI dùng RAG, Neo4j Knowledge Graph và Cloudflare Workers, hỗ trợ hỏi đáp ngữ nghĩa có hiểu ngữ cảnh.",
-          bullets: [
-            "Phát triển hệ thống fullstack với React/Next.js và APIs.",
-            "Dùng knowledge graph và semantic retrieval để cải thiện câu trả lời theo ngữ cảnh.",
-          ],
+          desc: "Xây dựng chatbot du lịch AI full-stack bằng Next.js, React, FastAPI, Neo4j, Cloudflare Workers và LLaMA4; triển khai các dịch vụ backend dựa trên MCP và bộ nhớ hội thoại.",
+          bullets: [],
           link: "https://github.com/SoulG0707/chatbot_tourism_AI",
         },
         {
           date: "11/2024 - 01/2025",
-          badge: "YOLOv8 · OCR",
+          badge: "YOLO · TensorFlow · OCR",
           title: "Handwritten Digit Recognition",
-          desc: "Xây hệ thống nhận dạng ngày viết tay bằng YOLOv8, Tesseract OCR và CNN.",
-          bullets: [
-            "Áp dụng tiền xử lý OpenCV để làm sạch ảnh và tách vùng nhận dạng.",
-            "Phát triển giao diện PyQt5 cho luồng tương tác và nhận dạng.",
-          ],
+          desc: "Xây dựng hệ thống nhận dạng ngày viết tay bằng Ultralytics YOLO, OpenCV, TensorFlow/Keras CNN và Tesseract OCR; phát triển giao diện desktop với PyQt5.",
+          bullets: [],
           link: "https://github.com/SoulG0707/Handwritten_digit_recognition",
         },
         {
           date: "04/2024 - 07/2024",
-          badge: "OpenCV",
+          badge: "OpenCV · dlib · PyQt5",
           title: "Face Recognition",
-          desc: "Xây hệ thống nhận dạng khuôn mặt thời gian thực bằng OpenCV và face_recognition.",
-          bullets: [
-            "Lưu dữ liệu điểm danh trong MySQL.",
-            "Phát triển giao diện và tính năng quản trị cho việc điểm danh.",
-          ],
+          desc: "Xây dựng hệ thống điểm danh nhận dạng khuôn mặt thời gian thực bằng OpenCV, dlib, face_recognition, PyQt5 và MySQL.",
+          bullets: [],
           link: "https://github.com/SoulG0707/Face_Recognition",
         },
       ],
@@ -508,9 +504,7 @@
                 <div class="meta"><span>${p.date}</span><span>${p.badge}</span></div>
                 <h3>${p.title}</h3>
                 <p class="muted">${p.desc}</p>
-                <ul class="muted project-bullets">
-                    ${p.bullets.map((b) => `<li>${b}</li>`).join("")}
-                </ul>
+                ${p.bullets?.length ? `<ul class="muted project-bullets">${p.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>` : ""}
                 <div class="card-action"><a class="btn" href="${p.link}" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i>Repository</a></div>
             </div>`,
       )
@@ -548,6 +542,7 @@
                     <div class="meta"><span>${item.time}</span><span>${item.place}</span></div>
                     <strong>${item.title}</strong>
                     <p class="muted">${item.desc}</p>
+                    ${item.bullets?.length ? `<ul class="muted exp-bullets">${item.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>` : ""}
                 </div>`,
         )
         .join("");
