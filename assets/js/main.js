@@ -171,15 +171,15 @@
       exp_title: "Work Experience",
       exp_sub: "Fullstack development, AI agents, and document Q&A systems.",
       experience: [
-        {
-          time: "Aug 2026 - Present",
-          company: "Trung Tâm Lưu Trữ Quốc Gia II",
-          role: "Fullstack Developer",
-          bullets: [
-            "Contributed to the development and completion of the website for Vietnam National Archives II.",
-            "Contributed to developing and implementing features for web and mobile applications of the Ho Chi Minh City Youth Volunteer Force.",
-          ],
-        },
+        // {
+        //   time: "Aug 2026 - Present",
+        //   company: "Trung Tâm Lưu Trữ Quốc Gia II",
+        //   role: "Fullstack Developer",
+        //   bullets: [
+        //     "Contributed to the development and completion of the website for Vietnam National Archives II.",
+        //     "Contributed to developing and implementing features for web and mobile applications of the Ho Chi Minh City Youth Volunteer Force.",
+        //   ],
+        // },
         {
           time: "Mar 2026 - Jun 2026",
           company: "Trung Tâm Lưu Trữ Quốc Gia II",
