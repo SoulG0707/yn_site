@@ -111,7 +111,7 @@
     en: {
       meta_title: "Pham Thi Yen Ngoc | AI Engineer",
       meta_desc:
-        "AI Engineer portfolio focused on machine learning, computer vision, LLM applications, backend systems, and deployment.",
+        "AI Engineer portfolio",
       nav_about: "About",
       nav_skills: "Skills",
       nav_education: "Education",
@@ -125,9 +125,9 @@
       hero_desc:
         "Aspiring AI engineer with a strong foundation in machine learning and data processing, seeking opportunities to gain experience and contribute to building efficient, high-impact AI systems that deliver real value.",
       hero_quote:
-        "Building practical AI products across machine learning, computer vision, LLM applications, backend systems, and deployment.",
+        "Building practical AI products across Machine Learning, Fullstack and DevOps.",
       skills_title: "Skills",
-      skills_sub: "AI/ML, data processing, deployment.",
+      skills_sub: "AI/ML, data processing, fullstack, DevOps.",
       skills: [
         {
           title: "Programming & Frontend",
@@ -183,7 +183,7 @@
         {
           time: "Mar 2026 - Jun 2026",
           company: "Trung Tâm Lưu Trữ Quốc Gia II",
-          role: "AI Engineer Intern",
+          role: "AI Engineer",
           bullets: [
             "Developed a Vietnamese AI chatbot for querying People's Armed Forces Heroes records in Long An Province.",
           ],
@@ -272,7 +272,7 @@
     vi: {
       meta_title: "Phạm Thị Yến Ngọc | AI Engineer",
       meta_desc:
-        "Portfolio AI Engineer tập trung vào machine learning, computer vision, ứng dụng LLM, hệ thống backend và triển khai.",
+        "Portfolio AI Engineer",
       nav_about: "Giới thiệu",
       nav_skills: "Kỹ năng",
       nav_education: "Học vấn",
@@ -282,13 +282,13 @@
       btn_cv: "CV",
       btn_download_cv: "Tải CV",
       hero_eyebrow: "AI Engineer",
-      hero_alias: "Machine Learning · Fullstack · LLM & AI Tools",
+      hero_alias: "AI Engineer · Fullstack Developer",
       hero_desc:
-        "Ứng viên AI Engineer có nền tảng tốt về machine learning và xử lý dữ liệu, mong muốn tích lũy kinh nghiệm và đóng góp vào việc xây dựng các hệ thống AI hiệu quả, có tác động thực tế.",
+        "AI Engineer có nền tảng tốt về Machine Learning và xử lý dữ liệu, mong muốn tích lũy kinh nghiệm và đóng góp vào việc xây dựng các hệ thống AI hiệu quả, có tác động thực tế.",
       hero_quote:
-        "Xây dựng sản phẩm AI thực tiễn với machine learning, computer vision, ứng dụng LLM, backend và triển khai.",
+        "Xây dựng sản phẩm AI thực tiễn với Machine Learning, Fullstack và DevOps.",
       skills_title: "Kỹ năng",
-      skills_sub: "AI/ML, xử lý dữ liệu, triển khai.",
+      skills_sub: "AI/ML, Fullstack và DevOps.",
       skills: [
         {
           title: "Lập trình & Frontend",
@@ -315,7 +315,7 @@
       edu_sub: "Chuyên ngành Trí tuệ Nhân tạo tại Đại học Hoa Sen.",
       edu: [
         {
-          time: "2022 - hiện tại",
+          time: "2022 - Hiện tại",
           place: "Hoa Sen University",
           title: "Cử nhân Khoa học ngành Trí tuệ Nhân tạo",
           desc: "Hoàn thành chương trình Trí tuệ Nhân tạo với GPA 3.2/4.0; đang chờ cấp bằng.",
@@ -325,26 +325,26 @@
         },
       ],
       cert_title: "Chứng chỉ",
-      cert_sub: "Năng lực tiếng Anh.",
+      cert_sub: "",
       certs: [
         "TOEIC Listening & Reading: 635, Speaking & Writing: 240 (2024)",
       ],
       exp_title: "Kinh nghiệm làm việc",
-      exp_sub: "Phát triển fullstack, AI agent và hệ thống hỏi đáp tài liệu.",
+      exp_sub: "Fullstack development, AI agents và hệ thống hỏi đáp tài liệu.",
       experience: [
-        {
-          time: "08/2026 - hiện tại",
-          company: "Trung Tâm Lưu Trữ Quốc Gia II",
-          role: "Fullstack Developer",
-          bullets: [
-            "Đóng góp phát triển và hoàn thiện website của Trung tâm Lưu trữ Quốc gia II.",
-            "Đóng góp phát triển và triển khai các tính năng cho ứng dụng web và mobile của Lực lượng Thanh niên Xung phong Thành phố Hồ Chí Minh.",
-          ],
-        },
+        // {
+        //   time: "08/2026 - Hiện tại",
+        //   company: "Trung Tâm Lưu Trữ Quốc Gia II",
+        //   role: "Fullstack Developer",
+        //   bullets: [
+        //     "Đóng góp phát triển và hoàn thiện website của Trung tâm Lưu trữ Quốc gia II.",
+        //     "Đóng góp phát triển và triển khai các tính năng cho ứng dụng web và mobile của Lực lượng Thanh niên Xung phong Thành phố Hồ Chí Minh.",
+        //   ],
+        // },
         {
           time: "03/2026 - 06/2026",
           company: "Trung Tâm Lưu Trữ Quốc Gia II",
-          role: "AI Engineer Intern",
+          role: "AI Engineer",
           bullets: [
             "Phát triển chatbot AI tiếng Việt để tra cứu hồ sơ các Anh hùng Lực lượng vũ trang nhân dân tại tỉnh Long An.",
           ],
