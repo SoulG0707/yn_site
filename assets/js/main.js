@@ -168,7 +168,7 @@
         "TOEIC Listening & Reading: 635, Speaking & Writing: 240 (2024)",
       ],
       exp_title: "Work Experience",
-      exp_sub: "Software engineering, DevOps, and AI systems.",
+      exp_sub: "Software engineering, DevOps, and AI agent.",
       experience: [
         {
           time: "Jul 2025 - Oct 2026",
