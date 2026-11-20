@@ -67,24 +67,24 @@
     </section>
 
     <section id="skills">
-        <div class="section-head"><div><div class="section-label" data-i18n="skills_title">Skills</div><div class="section-title" data-i18n="skills_sub">AI/ML, data processing, deployment.</div></div></div>
+        <div class="section-head"><div><h2 class="section-label" data-i18n="skills_title">Skills</h2><p class="section-title" data-i18n="skills_sub">AI/ML, data processing, deployment.</p></div></div>
         <div class="grid three" id="skills-grid"></div>
     </section>
 
     <section id="education">
-        <div class="section-head"><div><div class="section-label" data-i18n="edu_title">Education</div><div class="section-title" data-i18n="edu_sub">Artificial Intelligence at Hoa Sen University.</div></div></div>
+        <div class="section-head"><div><h2 class="section-label" data-i18n="edu_title">Education</h2><p class="section-title" data-i18n="edu_sub">Artificial Intelligence at Hoa Sen University.</p></div></div>
         <div class="timeline grid" id="edu-timeline"></div>
-        <div class="section-head compact-head"><div><div class="section-label" data-i18n="cert_title">Certifications</div><div class="section-title" data-i18n="cert_sub">English proficiency.</div></div></div>
+        <div class="section-head compact-head"><h3 class="section-label" data-i18n="cert_title">Certifications</h3></div>
         <div class="tags" id="cert-list"></div>
     </section>
 
     <section id="experience">
-        <div class="section-head"><div><div class="section-label" data-i18n="exp_title">Work Experience</div><div class="section-title" data-i18n="exp_sub">Software engineering, DevOps, and AI systems.</div></div></div>
+        <div class="section-head"><div><h2 class="section-label" data-i18n="exp_title">Work Experience</h2><p class="section-title" data-i18n="exp_sub">Software engineering, DevOps, and AI systems.</p></div></div>
         <div class="exp-timeline" id="exp-list"></div>
     </section>
 
     <section id="projects">
-        <div class="section-head"><div><div class="section-label" data-i18n="projects_title">Projects</div><div class="section-title" data-i18n="projects_sub">Fullstack AI, computer vision, and LLM applications.</div></div></div>
+        <div class="section-head"><div><h2 class="section-label" data-i18n="projects_title">Projects</h2><p class="section-title" data-i18n="projects_sub">Fullstack AI, computer vision, and LLM applications.</p></div></div>
         <div class="grid three" id="projects-grid"></div>
     </section>
 
@@ -164,7 +164,6 @@
         },
       ],
       cert_title: "Certifications",
-      cert_sub: "English proficiency.",
       certs: [
         "TOEIC Listening & Reading: 635, Speaking & Writing: 240 (2024)",
       ],
@@ -330,7 +329,6 @@
         },
       ],
       cert_title: "Chứng chỉ",
-      cert_sub: "",
       certs: [
         "TOEIC Listening & Reading: 635, Speaking & Writing: 240 (2024)",
       ],
@@ -549,11 +547,12 @@
       eduTimeline.innerHTML = content[lang].edu
         .map(
           (item) => `
-                <div class="card">
-                    <div class="meta"><span>${item.time}</span><span>${item.place}</span></div>
-                    <strong>${item.title}</strong>
-                    <p class="muted">${item.desc}</p>
-                    ${item.bullets?.length ? `<ul class="muted exp-bullets">${item.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>` : ""}
+                <div class="card edu-card">
+                    <span class="edu-time">${item.time}</span>
+                    <h3>${item.place}</h3>
+                    <div class="edu-degree">${item.title}</div>
+                    <p class="edu-desc">${item.desc}</p>
+                    ${item.bullets?.length ? `<ul class="edu-courses">${item.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>` : ""}
                 </div>`,
         )
         .join("");

@@ -35,6 +35,9 @@
   .grid {
     grid-template-columns: 1fr;
   }
+  #skills-grid {
+    grid-template-columns: 1fr;
+  }
   #projects-grid {
     grid-template-columns: 1fr;
   }
