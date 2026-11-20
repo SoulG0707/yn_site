@@ -26,7 +26,6 @@
 <header>
     <div class="nav">
         <a class="brand" href="#about">
-            <span class="brand-avatar">AI</span>
             <span>${profile.name}</span>
         </a>
         <nav id="nav-links" class="nav-links"></nav>
@@ -35,7 +34,7 @@
                 <button class="lang-btn" data-lang="en">EN</button>
                 <button class="lang-btn" data-lang="vi">VI</button>
             </div>
-            <a class="btn primary" id="btn-cv-inline" href="${PATHS.cv}" download><i class="fa-solid fa-download"></i><span data-i18n="btn_cv">CV</span></a>
+            <a class="btn" id="btn-cv-inline" href="${PATHS.cv}" download><i class="fa-solid fa-download" aria-hidden="true"></i><span data-i18n="btn_cv">CV</span></a>
         </div>
     </div>
 </header>
@@ -44,24 +43,22 @@
     <section id="about">
         <div class="hero-spotlight">
             <div class="hero-left">
-                <div class="hero-badge" id="hero-badge"></div>
+                <p class="hero-badge" id="hero-badge"></p>
                 <div class="hero-title">
-                    <div class="hero-name" id="hero-name">${profile.name}</div>
-                    <div class="hero-alias" id="hero-alias"></div>
+                    <h1 class="hero-name" id="hero-name">${profile.name}</h1>
+                    <p class="hero-alias" id="hero-alias"></p>
                 </div>
                 <p class="hero-desc" id="hero-desc"></p>
-                <div class="hero-facts" id="hero-facts"></div>
                 <div class="hero-actions">
-                    <a class="btn primary" href="#contact"><i class="fa-regular fa-envelope"></i><span data-i18n="nav_contact">Contact</span></a>
-                    <a class="btn ghost" id="btn-cv" href="${PATHS.cv}" download><i class="fa-solid fa-download"></i><span data-i18n="btn_download_cv">Download CV</span></a>
+                    <a class="btn primary" href="#projects"><span data-i18n="btn_view_projects">View projects</span><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <a class="btn ghost" id="btn-cv" href="${PATHS.cv}" download><i class="fa-solid fa-download" aria-hidden="true"></i><span data-i18n="btn_download_cv">Download CV</span></a>
                 </div>
             </div>
             <div class="hero-right">
                 <div class="hero-portrait">
                     <img id="hero-photo" src="${PATHS.avatar}" alt="${profile.name}">
-                    <span class="hero-portrait-icon"><i class="fa-solid fa-brain"></i></span>
                 </div>
-                <div class="hero-quote" id="hero-quote"></div>
+                <p class="hero-quote" id="hero-quote"></p>
             </div>
         </div>
     </section>
@@ -89,18 +86,8 @@
     </section>
 
     <section id="contact">
-        <div class="contact-shell">
-            <div class="contact-panel">
-                <div class="contact-heading">
-                    <div>
-                        <div class="contact-title" data-i18n="contact_title">Contact</div>
-                        <p class="contact-subtitle" data-i18n="contact_sub">Available in Ho Chi Minh City, Vietnam.</p>
-                    </div>
-                    <div class="contact-heading-icon"><i class="fa-regular fa-address-card"></i></div>
-                </div>
-                <div class="contact-box" id="contact-box"></div>
-            </div>
-        </div>
+        <div class="section-head"><div><h2 class="section-label" data-i18n="contact_title">Contact</h2><p class="section-title" data-i18n="contact_sub">Available in Ho Chi Minh City, Vietnam.</p></div></div>
+        <div class="contact-box" id="contact-box"></div>
         <div class="contact-footer" id="footer-copy"></div>
     </section>
 </main>
@@ -120,6 +107,7 @@
       nav_contact: "Contact",
       btn_cv: "CV",
       btn_download_cv: "Download CV",
+      btn_view_projects: "View projects",
       hero_eyebrow: "AI Engineer",
       hero_alias: "Machine Learning · Software Engineering · DevOps",
       hero_desc:
@@ -238,8 +226,6 @@
           value: profile.email,
           href: `mailto:${profile.email}`,
           icon: "fa-regular fa-envelope",
-          color: "#ea4335",
-          bg: "rgba(234,67,53,0.12)",
         },
         {
           label: "Phone",
@@ -247,8 +233,6 @@
           value: profile.phone,
           href: "tel:0775601416",
           icon: "fa-solid fa-phone",
-          color: "#0ea5e9",
-          bg: "rgba(14,165,233,0.12)",
         },
         {
           label: "Portfolio",
@@ -256,8 +240,6 @@
           value: "yenngoc.vercel.app",
           href: profile.website,
           icon: "fa-solid fa-globe",
-          color: "#22c55e",
-          bg: "rgba(34,197,94,0.12)",
           target: "_blank",
         },
         {
@@ -266,8 +248,6 @@
           value: "github.com/SoulG0707",
           href: profile.github,
           icon: "fa-brands fa-github",
-          color: "#cbd5e1",
-          bg: "rgba(203,213,225,0.12)",
           target: "_blank",
         },
       ],
@@ -285,6 +265,7 @@
       nav_contact: "Liên hệ",
       btn_cv: "CV",
       btn_download_cv: "Tải CV",
+      btn_view_projects: "Xem dự án",
       hero_eyebrow: "AI Engineer",
       hero_alias: "AI Engineer · Kỹ thuật phần mềm · DevOps",
       hero_desc:
@@ -403,8 +384,6 @@
           value: profile.email,
           href: `mailto:${profile.email}`,
           icon: "fa-regular fa-envelope",
-          color: "#ea4335",
-          bg: "rgba(234,67,53,0.12)",
         },
         {
           label: "Điện thoại",
@@ -412,8 +391,6 @@
           value: profile.phone,
           href: "tel:0775601416",
           icon: "fa-solid fa-phone",
-          color: "#0ea5e9",
-          bg: "rgba(14,165,233,0.12)",
         },
         {
           label: "Portfolio",
@@ -421,8 +398,6 @@
           value: "yenngoc.vercel.app",
           href: profile.website,
           icon: "fa-solid fa-globe",
-          color: "#22c55e",
-          bg: "rgba(34,197,94,0.12)",
           target: "_blank",
         },
         {
@@ -431,8 +406,6 @@
           value: "github.com/SoulG0707",
           href: profile.github,
           icon: "fa-brands fa-github",
-          color: "#cbd5e1",
-          bg: "rgba(203,213,225,0.12)",
           target: "_blank",
         },
       ],
@@ -570,7 +543,7 @@
         .map((c) => {
           const target = c.target || "_self";
           const rel = target === "_blank" ? 'rel="noreferrer"' : "";
-          return `<a class="contact-item" href="${c.href}" target="${target}" ${rel} style="--tint:${c.color};--tint-bg:${c.bg};">
+          return `<a class="contact-item" href="${c.href}" target="${target}" ${rel}>
                     <span class="contact-icon"><i class="${c.icon}"></i></span>
                     <span class="contact-body">
                         <span class="contact-label">${c.label}</span>
@@ -587,24 +560,12 @@
 
   function renderHero(lang) {
     const t = content[lang];
-    const facts = [
-      { icon: "fa-solid fa-location-dot", text: profile.location },
-      { icon: "fa-regular fa-envelope", text: profile.email },
-      { icon: "fa-solid fa-phone", text: profile.phone },
-    ];
 
     setText("hero-badge", t.hero_eyebrow);
     setText("hero-name", profile.name);
     setText("hero-alias", t.hero_alias);
     setText("hero-desc", t.hero_desc);
     setText("hero-quote", t.hero_quote);
-
-    const factsEl = document.getElementById("hero-facts");
-    if (factsEl) {
-      factsEl.innerHTML = facts
-        .map((fact) => `<span><i class="${fact.icon}"></i>${fact.text}</span>`)
-        .join("");
-    }
 
     const photoEl = document.getElementById("hero-photo");
     if (photoEl) photoEl.src = PATHS.avatar;
@@ -649,7 +610,10 @@
       topBtn.classList.toggle("show", window.scrollY > 240);
     });
     topBtn.addEventListener("click", () => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+      const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+        ? "auto"
+        : "smooth";
+      window.scrollTo({ top: 0, behavior });
     });
   }
 
@@ -660,7 +624,10 @@
         const target = document.querySelector(link.getAttribute("href"));
         if (target) {
           e.preventDefault();
-          target.scrollIntoView({ behavior: "smooth" });
+          const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            ? "auto"
+            : "smooth";
+          target.scrollIntoView({ behavior });
         }
       });
     });
@@ -668,20 +635,22 @@
 
   function initScrollSpy() {
     if (!navLinks || !sections) return;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          navLinks.forEach((link) => link.classList.remove("active"));
-          const current = document.querySelector(
-            `header nav a[href="#${entry.target.id}"]`,
-          );
-          if (current) current.classList.add("active");
-        });
-      },
-      { threshold: 0.4 },
-    );
-    sections.forEach((section) => observer.observe(section));
+    const updateActiveLink = () => {
+      const headerHeight = document.querySelector("header")?.offsetHeight || 0;
+      const position = window.scrollY + headerHeight + 40;
+      let current = sections[0].id;
+      sections.forEach((section) => {
+        if (section.getBoundingClientRect().top + window.scrollY <= position) {
+          current = section.id;
+        }
+      });
+      navLinks.forEach((link) => {
+        link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
+      });
+    };
+    window.addEventListener("scroll", updateActiveLink, { passive: true });
+    window.addEventListener("resize", updateActiveLink);
+    updateActiveLink();
   }
 
   function initLangSwitch() {
