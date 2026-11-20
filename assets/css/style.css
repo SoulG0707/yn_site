@@ -220,6 +220,10 @@ section {
 .three {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
+#projects-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
 
 .card {
   background: linear-gradient(
@@ -234,13 +238,48 @@ section {
 }
 .project-card {
   border-radius: 20px;
-  padding: 20px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
 }
+.project-date {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 9px;
+  padding: 7px 12px;
+  border: 1px solid rgba(127, 140, 255, 0.32);
+  border-radius: 10px;
+  background: rgba(127, 140, 255, 0.12);
+  color: #dce4ff;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+}
 .project-card h3 {
-  font-size: 20px;
-  margin: 8px 0;
+  font-size: 22px;
+  line-height: 1.35;
+  margin: 16px 0 12px;
+}
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+.project-tech span {
+  padding: 5px 9px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #b9c9eb;
+  font-size: 12px;
+  font-weight: 700;
+}
+.project-desc {
+  color: #c0cce5;
+  line-height: 1.7;
+  max-width: 65ch;
 }
 .project-bullets {
   margin-top: 8px;
@@ -250,6 +289,10 @@ section {
 .card-action {
   margin-top: auto;
   padding-top: 12px;
+}
+.project-card .card-action {
+  margin-top: auto;
+  padding-top: 18px;
 }
 
 .hero-spotlight {

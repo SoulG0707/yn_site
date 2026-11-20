@@ -187,6 +187,7 @@
       ],
       projects_title: "Projects",
       projects_sub: "Fullstack AI, computer vision, and LLM applications.",
+      repository_label: "View repository",
       projects: [
         {
           date: "Jul 2025 - Dec 2025",
@@ -352,6 +353,7 @@
       ],
       projects_title: "Dự án",
       projects_sub: "Ứng dụng AI fullstack, computer vision và LLM.",
+      repository_label: "Xem mã nguồn",
       projects: [
         {
           date: "07/2025 - 12/2025",
@@ -509,11 +511,12 @@
       .map(
         (p) => `
             <div class="card project-card">
-                <div class="meta"><span>${p.date}</span><span>${p.badge}</span></div>
+                <div class="project-date"><i class="fa-regular fa-calendar" aria-hidden="true"></i><span>${p.date}</span></div>
                 <h3>${p.title}</h3>
-                <p class="muted">${p.desc}</p>
+                <div class="project-tech">${p.badge.split(" · ").map((tech) => `<span>${tech}</span>`).join("")}</div>
+                <p class="project-desc">${p.desc}</p>
                 ${p.bullets?.length ? `<ul class="muted project-bullets">${p.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>` : ""}
-                <div class="card-action"><a class="btn" href="${p.link}" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i>Repository</a></div>
+                <div class="card-action"><a class="btn" href="${p.link}" target="_blank" rel="noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i>${content[lang].repository_label}</a></div>
             </div>`,
       )
       .join("");
