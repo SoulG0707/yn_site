@@ -79,7 +79,7 @@
     </section>
 
     <section id="experience">
-        <div class="section-head"><div><div class="section-label" data-i18n="exp_title">Work Experience</div><div class="section-title" data-i18n="exp_sub">AI agents and document Q&A systems.</div></div></div>
+        <div class="section-head"><div><div class="section-label" data-i18n="exp_title">Work Experience</div><div class="section-title" data-i18n="exp_sub">Software engineering, DevOps, and AI systems.</div></div></div>
         <div class="exp-timeline" id="exp-list"></div>
     </section>
 
@@ -121,11 +121,11 @@
       btn_cv: "CV",
       btn_download_cv: "Download CV",
       hero_eyebrow: "AI Engineer",
-      hero_alias: "Machine Learning · Fullstack · LLM & AI Tools",
+      hero_alias: "Machine Learning · Software Engineering · DevOps",
       hero_desc:
         "Aspiring AI engineer with a strong foundation in machine learning and data processing, seeking opportunities to gain experience and contribute to building efficient, high-impact AI systems that deliver real value.",
       hero_quote:
-        "Building practical AI products across Machine Learning, Fullstack and DevOps.",
+        "Building practical AI systems with machine learning, software engineering, and DevOps.",
       skills_title: "Skills",
       skills_sub: "AI/ML, data processing, fullstack, DevOps.",
       skills: [
@@ -143,7 +143,7 @@
         },
         {
           title: "Backend & Database",
-          tags: ["FastAPI", "Node.js", "Express.js", "SQLAlchemy", "SQLite", "MySQL", "PostgreSQL", "SQL Server", "Neo4j"],
+          tags: ["FastAPI", "Node.js", "SQLite", "MySQL", "PostgreSQL", "SQL Server", "Neo4j"],
         },
         {
           title: "DevOps & Deployment",
@@ -169,31 +169,19 @@
         "TOEIC Listening & Reading: 635, Speaking & Writing: 240 (2024)",
       ],
       exp_title: "Work Experience",
-      exp_sub: "Fullstack development, AI agents, and document Q&A systems.",
+      exp_sub: "Software engineering, DevOps, and AI systems.",
       experience: [
-        // {
-        //   time: "Aug 2026 - Present",
-        //   company: "Trung Tâm Lưu Trữ Quốc Gia II",
-        //   role: "Fullstack Developer",
-        //   bullets: [
-        //     "Contributed to the development and completion of the website for Vietnam National Archives II.",
-        //     "Contributed to developing and implementing features for web and mobile applications of the Ho Chi Minh City Youth Volunteer Force.",
-        //   ],
-        // },
         {
-          time: "Mar 2026 - Jun 2026",
+          time: "Jul 2025 - Oct 2026",
           company: "Trung Tâm Lưu Trữ Quốc Gia II",
-          role: "AI Engineer",
+          role: "DevOps, Software Engineer",
           bullets: [
+            "Processed administrative documents from Ho Chi Minh City and Binh Duong, and built a Q&A chatbot for administrative documents.",
             "Developed a Vietnamese AI chatbot for querying People's Armed Forces Heroes records in Long An Province.",
-          ],
-        },
-        {
-          time: "Jul 2025 - Dec 2025",
-          company: "Trung Tâm Lưu Trữ Quốc Gia II",
-          role: "AI/ML Engineer Intern",
-          bullets: [
-            "Processed administrative documents from Ho Chi Minh City and Binh Duong, built a Q&A chatbot for administrative documents.",
+            "Performed OCR processing on scanned administrative documents.",
+            "Customized software to meet the requirements of Ben Tre Data Center.",
+            "Provided technical support and guidance to software users.",
+            "Uploaded and imported administrative documents into the system.",
           ],
         },
       ],
@@ -207,6 +195,22 @@
           desc: "Built a full-stack AI tourism chatbot using Next.js, React, FastAPI, Neo4j, Cloudflare Workers, and LLaMA4; implemented MCP-based backend services and conversational memory.",
           bullets: [],
           link: "https://github.com/SoulG0707/chatbot_tourism_AI",
+        },
+        {
+          date: "Jun 2025 - Sep 2025",
+          badge: "LLaMA 3 · RAG · FastAPI",
+          title: "Chatbot HSU",
+          desc: "Developed an AI chatbot using LLaMA 3 and RAG to answer questions about Hoa Sen University's academic programs. Built PDF/DOCX document retrieval and context-based responses, with a React interface, FastAPI backend, chat history, and user authentication.",
+          bullets: [],
+          link: "https://github.com/SoulG0707/Chatbot_HSU",
+        },
+        {
+          date: "Feb 2025 - Jul 2025",
+          badge: "InsightFace · OpenCV · PyQt5",
+          title: "Face Recognition 2.0",
+          desc: "Developed a real-time attendance system with facial recognition and emotion detection. Implemented face registration, model training, and student identification with InsightFace and OpenCV; built a PyQt5 interface backed by SQL Server.",
+          bullets: [],
+          link: "https://github.com/SoulG0707/Face_Recognition_2.0",
         },
         {
           date: "Nov 2024 - Jan 2025",
@@ -282,11 +286,11 @@
       btn_cv: "CV",
       btn_download_cv: "Tải CV",
       hero_eyebrow: "AI Engineer",
-      hero_alias: "AI Engineer · Fullstack Developer",
+      hero_alias: "AI Engineer · Kỹ thuật phần mềm · DevOps",
       hero_desc:
         "AI Engineer có nền tảng tốt về Machine Learning và xử lý dữ liệu, mong muốn tích lũy kinh nghiệm và đóng góp vào việc xây dựng các hệ thống AI hiệu quả, có tác động thực tế.",
       hero_quote:
-        "Xây dựng sản phẩm AI thực tiễn với Machine Learning, Fullstack và DevOps.",
+        "Xây dựng hệ thống AI thực tiễn bằng machine learning, kỹ thuật phần mềm và DevOps.",
       skills_title: "Kỹ năng",
       skills_sub: "AI/ML, Fullstack và DevOps.",
       skills: [
@@ -304,7 +308,7 @@
         },
         {
           title: "Backend & Cơ sở dữ liệu",
-          tags: ["FastAPI", "Node.js", "Express.js", "SQLAlchemy", "SQLite", "MySQL", "PostgreSQL", "SQL Server", "Neo4j"],
+          tags: ["FastAPI", "Node.js", "SQLite", "MySQL", "PostgreSQL", "SQL Server", "Neo4j"],
         },
         {
           title: "DevOps & Triển khai",
@@ -330,31 +334,19 @@
         "TOEIC Listening & Reading: 635, Speaking & Writing: 240 (2024)",
       ],
       exp_title: "Kinh nghiệm làm việc",
-      exp_sub: "Fullstack development, AI agents và hệ thống hỏi đáp tài liệu.",
+      exp_sub: "Kỹ thuật phần mềm, DevOps và hệ thống AI.",
       experience: [
-        // {
-        //   time: "08/2026 - Hiện tại",
-        //   company: "Trung Tâm Lưu Trữ Quốc Gia II",
-        //   role: "Fullstack Developer",
-        //   bullets: [
-        //     "Đóng góp phát triển và hoàn thiện website của Trung tâm Lưu trữ Quốc gia II.",
-        //     "Đóng góp phát triển và triển khai các tính năng cho ứng dụng web và mobile của Lực lượng Thanh niên Xung phong Thành phố Hồ Chí Minh.",
-        //   ],
-        // },
         {
-          time: "03/2026 - 06/2026",
+          time: "07/2025 - 10/2026",
           company: "Trung Tâm Lưu Trữ Quốc Gia II",
-          role: "AI Engineer",
-          bullets: [
-            "Phát triển chatbot AI tiếng Việt để tra cứu hồ sơ các Anh hùng Lực lượng vũ trang nhân dân tại tỉnh Long An.",
-          ],
-        },
-        {
-          time: "07/2025 - 12/2025",
-          company: "Trung Tâm Lưu Trữ Quốc Gia II",
-          role: "AI/ML Engineer Intern",
+          role: "DevOps, Software Engineer",
           bullets: [
             "Xử lý tài liệu hành chính từ TP. Hồ Chí Minh và Bình Dương, xây dựng chatbot hỏi đáp cho tài liệu hành chính.",
+            "Phát triển chatbot AI tiếng Việt để tra cứu hồ sơ các Anh hùng Lực lượng vũ trang nhân dân tại tỉnh Long An.",
+            "Xử lý OCR trên tài liệu hành chính được quét.",
+            "Tùy chỉnh phần mềm theo yêu cầu của Trung tâm Dữ liệu Bến Tre.",
+            "Hỗ trợ kỹ thuật và hướng dẫn người dùng sử dụng phần mềm.",
+            "Tải lên và nhập tài liệu hành chính vào hệ thống.",
           ],
         },
       ],
@@ -368,6 +360,22 @@
           desc: "Xây dựng chatbot du lịch AI full-stack bằng Next.js, React, FastAPI, Neo4j, Cloudflare Workers và LLaMA4; triển khai các dịch vụ backend dựa trên MCP và bộ nhớ hội thoại.",
           bullets: [],
           link: "https://github.com/SoulG0707/chatbot_tourism_AI",
+        },
+        {
+          date: "06/2025 - 09/2025",
+          badge: "LLaMA 3 · RAG · FastAPI",
+          title: "Chatbot HSU",
+          desc: "Phát triển chatbot AI dùng LLaMA 3 và RAG để trả lời câu hỏi về các chương trình đào tạo của Đại học Hoa Sen. Xây dựng hệ thống truy xuất tài liệu PDF/DOCX và trả lời theo ngữ cảnh, với giao diện React, backend FastAPI, lịch sử hội thoại và xác thực người dùng.",
+          bullets: [],
+          link: "https://github.com/SoulG0707/Chatbot_HSU",
+        },
+        {
+          date: "02/2025 - 07/2025",
+          badge: "InsightFace · OpenCV · PyQt5",
+          title: "Face Recognition 2.0",
+          desc: "Phát triển hệ thống điểm danh thời gian thực bằng nhận dạng khuôn mặt và phát hiện cảm xúc. Triển khai đăng ký khuôn mặt, huấn luyện mô hình và nhận diện sinh viên bằng InsightFace và OpenCV; xây dựng giao diện PyQt5 kết nối SQL Server.",
+          bullets: [],
+          link: "https://github.com/SoulG0707/Face_Recognition_2.0",
         },
         {
           date: "11/2024 - 01/2025",
