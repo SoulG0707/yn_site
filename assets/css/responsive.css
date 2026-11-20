@@ -29,6 +29,16 @@
   .other-projects { grid-template-columns:1fr; gap:30px; }
   #skills-grid { gap:30px; }
   .contact-section { margin-top:110px; }
+  .gallery-image { flex-basis:100%; }
+  .gallery-image img,.other-project .gallery-image img { height:250px; }
+  .project-lightbox { width:96vw; padding:10px; }
+  .lightbox-view { grid-template-columns:28px minmax(0,1fr) 28px; gap:5px; }
+  .lightbox-view:not(.single) { position:relative; display:block; }
+  .lightbox-arrow { width:28px; height:34px; }
+  .lightbox-view:not(.single) .lightbox-arrow { position:absolute; top:50%; z-index:1; transform:translateY(-50%); background:var(--bg); }
+  .lightbox-view:not(.single) #lightbox-previous { left:2px; }
+  .lightbox-view:not(.single) #lightbox-next { right:2px; }
+  .lightbox-view img { max-height:min(72vh,620px); }
 }
 @media (max-width:520px) {
   .nav,.wrap { width:min(100% - 36px,1100px); }

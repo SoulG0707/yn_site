@@ -90,7 +90,18 @@
 </main>
 
 <footer class="footer"><span id="footer-copy"></span><a href="${profile.github}" target="_blank" rel="noreferrer">GitHub</a></footer>
-<button id="top" type="button" aria-label="Back to top">↑</button>`;
+<button id="top" type="button" aria-label="Back to top">↑</button>
+<dialog id="project-lightbox" class="project-lightbox" aria-label="Project image preview">
+    <div class="lightbox-bar">
+        <span id="lightbox-caption"></span>
+        <button id="lightbox-close" type="button" aria-label="Close image preview">×</button>
+    </div>
+    <div class="lightbox-view">
+        <button id="lightbox-previous" class="lightbox-arrow" type="button" aria-label="Previous image">←</button>
+        <img id="lightbox-image" alt="">
+        <button id="lightbox-next" class="lightbox-arrow" type="button" aria-label="Next image">→</button>
+    </div>
+</dialog>`;
 
   const content = {
     en: {
@@ -174,8 +185,17 @@
       featured_title: "Featured Projects",
       other_title: "Other Projects",
       repository_label: "View repository",
+      gallery_previous: "Previous image",
+      gallery_next: "Next image",
+      gallery_close: "Close image preview",
+      gallery_open: "Show project images",
+      gallery_hide: "Hide project images",
+      gallery_preview: "Project image preview",
+      gallery_image: "Open image",
+      gallery_count: "images",
       projects: [
         {
+          id: "tourism-ai-chatbot",
           date: "Jul 2025 - Dec 2025",
           featured: true,
           badge: "Next.js · FastAPI · MCP",
@@ -185,6 +205,7 @@
           link: "https://github.com/SoulG0707/chatbot_tourism_AI",
         },
         {
+          id: "chatbot-hsu",
           date: "Jun 2025 - Sep 2025",
           featured: true,
           badge: "LLaMA 3 · RAG · FastAPI",
@@ -194,6 +215,7 @@
           link: "https://github.com/SoulG0707/Chatbot_HSU",
         },
         {
+          id: "face-recognition-2",
           date: "Feb 2025 - Jul 2025",
           featured: true,
           badge: "InsightFace · OpenCV · PyQt5",
@@ -203,6 +225,7 @@
           link: "https://github.com/SoulG0707/Face_Recognition_2.0",
         },
         {
+          id: "handwritten-digit-recognition",
           date: "Nov 2024 - Jan 2025",
           badge: "YOLO · TensorFlow · OCR",
           title: "Handwritten Digit Recognition",
@@ -211,6 +234,7 @@
           link: "https://github.com/SoulG0707/Handwritten_digit_recognition",
         },
         {
+          id: "face-recognition",
           date: "Apr 2024 - Jul 2024",
           badge: "OpenCV · dlib · PyQt5",
           title: "Face Recognition",
@@ -328,8 +352,17 @@
       featured_title: "Dự án nổi bật",
       other_title: "Dự án khác",
       repository_label: "Xem mã nguồn",
+      gallery_previous: "Ảnh trước",
+      gallery_next: "Ảnh tiếp theo",
+      gallery_close: "Đóng ảnh",
+      gallery_open: "Xem ảnh dự án",
+      gallery_hide: "Ẩn ảnh dự án",
+      gallery_preview: "Xem ảnh dự án",
+      gallery_image: "Mở ảnh",
+      gallery_count: "ảnh",
       projects: [
         {
+          id: "tourism-ai-chatbot",
           date: "07/2025 - 12/2025",
           featured: true,
           badge: "Next.js · FastAPI · MCP",
@@ -339,6 +372,7 @@
           link: "https://github.com/SoulG0707/chatbot_tourism_AI",
         },
         {
+          id: "chatbot-hsu",
           date: "06/2025 - 09/2025",
           featured: true,
           badge: "LLaMA 3 · RAG · FastAPI",
@@ -348,6 +382,7 @@
           link: "https://github.com/SoulG0707/Chatbot_HSU",
         },
         {
+          id: "face-recognition-2",
           date: "02/2025 - 07/2025",
           featured: true,
           badge: "InsightFace · OpenCV · PyQt5",
@@ -357,6 +392,7 @@
           link: "https://github.com/SoulG0707/Face_Recognition_2.0",
         },
         {
+          id: "handwritten-digit-recognition",
           date: "11/2024 - 01/2025",
           badge: "YOLO · TensorFlow · OCR",
           title: "Handwritten Digit Recognition",
@@ -365,6 +401,7 @@
           link: "https://github.com/SoulG0707/Handwritten_digit_recognition",
         },
         {
+          id: "face-recognition",
           date: "04/2024 - 07/2024",
           badge: "OpenCV · dlib · PyQt5",
           title: "Face Recognition",
@@ -416,6 +453,12 @@
   let certList;
   let contactBox;
   let sections;
+  let imageManifest = {};
+  let activeGallery = null;
+  let activeLanguage = "en";
+  let lightboxState = null;
+  let lightboxReturnFocus = null;
+  let suppressGalleryClick = false;
 
   document.addEventListener("DOMContentLoaded", () => {
     mountLayout();
@@ -427,6 +470,8 @@
     initNavSmoothScroll();
     initScrollSpy();
     initMobileMenu();
+    initProjectGallery();
+    loadImageManifest();
   });
 
   function mountLayout() {
@@ -478,24 +523,217 @@
   function renderProjects(lang) {
     if (!featuredProjects || !otherProjects) return;
     const projects = content[lang].projects;
+    if (activeGallery && !imageManifest[activeGallery]?.length) activeGallery = null;
     featuredProjects.innerHTML = projects.filter((p) => p.featured)
       .map(
         (p, index) => `
             <article class="featured-project">
                 <div class="project-index"><span>${String(index + 1).padStart(2, "0")}</span><time class="project-date">${p.date}</time></div>
                 <div class="project-content">
-                    <h4>${p.title}</h4>
+                    ${renderProjectHeading(p, lang)}
                     <p class="project-desc">${p.desc}</p>
                     <ul class="project-bullets">${p.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>
                     <p class="project-tech">${p.badge}</p>
                     <a class="project-link" href="${p.link}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> ${content[lang].repository_label}<span class="sr-only">: ${p.title}</span> <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
                 </div>
+                ${renderGalleryShell(p, lang)}
             </article>`,
       )
       .join("");
     otherProjects.innerHTML = projects.filter((p) => !p.featured)
-      .map((p) => `<article class="other-project"><time class="project-date">${p.date}</time><h4>${p.title}</h4><p>${p.desc}</p><p class="project-tech">${p.badge}</p><a class="project-link" href="${p.link}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> ${content[lang].repository_label}<span class="sr-only">: ${p.title}</span> <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a></article>`)
+      .map((p) => `<article class="other-project"><time class="project-date">${p.date}</time>${renderProjectHeading(p, lang)}<p>${p.desc}</p><p class="project-tech">${p.badge}</p><a class="project-link" href="${p.link}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> ${content[lang].repository_label}<span class="sr-only">: ${p.title}</span> <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>${renderGalleryShell(p, lang)}</article>`)
       .join("");
+    if (activeGallery) populateGallery(activeGallery);
+  }
+
+  function renderProjectHeading(project, lang) {
+    if (!imageManifest[project.id]?.length) return `<h4>${project.title}</h4>`;
+    const expanded = activeGallery === project.id;
+    return `<h4><button class="project-title-button${expanded ? " active" : ""}" id="project-toggle-${project.id}" type="button" data-project-toggle="${project.id}" aria-controls="gallery-${project.id}" aria-expanded="${expanded}" aria-label="${expanded ? content[lang].gallery_hide : content[lang].gallery_open}: ${project.title}">${project.title}<span class="project-title-indicator" aria-hidden="true">${expanded ? "−" : "+"}</span></button></h4>`;
+  }
+
+  function renderGalleryShell(project, lang) {
+    const count = imageManifest[project.id]?.length || 0;
+    if (!count) return "";
+    const expanded = activeGallery === project.id;
+    return `<div class="project-gallery${expanded ? " open" : ""}" id="gallery-${project.id}" role="region" aria-labelledby="project-toggle-${project.id}" aria-hidden="${!expanded}" ${expanded ? "" : "inert"}>
+      <div class="project-gallery-inner">
+        <div class="gallery-toolbar">
+          <span>${count} ${content[lang].gallery_count}</span>
+          ${count > 1 ? `<div class="gallery-arrows"><button type="button" data-gallery-step="-1" data-project-id="${project.id}" aria-label="${content[lang].gallery_previous}">←</button><button type="button" data-gallery-step="1" data-project-id="${project.id}" aria-label="${content[lang].gallery_next}">→</button></div>` : ""}
+        </div>
+        <div class="gallery-track" data-gallery-track="${project.id}" role="group" aria-label="${project.title}" tabindex="0"></div>
+      </div>
+    </div>`;
+  }
+
+  async function loadImageManifest() {
+    try {
+      const response = await fetch("assets/images/projects/manifest.json");
+      if (!response.ok) throw new Error("Project image manifest is unavailable");
+      const data = await response.json();
+      for (const project of content.en.projects) {
+        const prefix = `assets/images/projects/${project.id}/`;
+        imageManifest[project.id] = Array.isArray(data[project.id])
+          ? data[project.id].filter((url) => typeof url === "string" && url.startsWith(prefix))
+          : [];
+      }
+      renderProjects(activeLanguage);
+    } catch {
+      // The rest of the portfolio remains usable before the first build or offline.
+    }
+  }
+
+  function populateGallery(id) {
+    const track = document.querySelector(`[data-gallery-track="${id}"]`);
+    if (!track || track.dataset.loaded) return;
+    const project = content[activeLanguage].projects.find((item) => item.id === id);
+    const images = imageManifest[id] || [];
+    if (!project || !images.length) return;
+    track.innerHTML = images.map((url, index) =>
+      `<button class="gallery-image" type="button" data-gallery-image="${id}" data-image-index="${index}" aria-label="${content[activeLanguage].gallery_image} ${index + 1}/${images.length}: ${project.title}"><img src="${url}" alt="${project.title} — ${index + 1}" loading="lazy" decoding="async" draggable="false"></button>`
+    ).join("");
+    track.dataset.loaded = "true";
+    initTrackDrag(track);
+  }
+
+  function setGalleryOpen(id, open) {
+    const toggle = document.getElementById(`project-toggle-${id}`);
+    const panel = document.getElementById(`gallery-${id}`);
+    if (!toggle || !panel) return;
+    if (open) populateGallery(id);
+    toggle.classList.toggle("active", open);
+    toggle.setAttribute("aria-expanded", String(open));
+    const project = content[activeLanguage].projects.find((item) => item.id === id);
+    if (project) toggle.setAttribute("aria-label", `${open ? content[activeLanguage].gallery_hide : content[activeLanguage].gallery_open}: ${project.title}`);
+    toggle.querySelector(".project-title-indicator").textContent = open ? "−" : "+";
+    panel.classList.toggle("open", open);
+    panel.setAttribute("aria-hidden", String(!open));
+    panel.inert = !open;
+  }
+
+  function scrollGallery(id, direction) {
+    const track = document.querySelector(`[data-gallery-track="${id}"]`);
+    if (!track) return;
+    const item = track.querySelector(".gallery-image");
+    const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+    const distance = (item?.getBoundingClientRect().width || track.clientWidth) + gap;
+    track.scrollBy({
+      left: direction * distance,
+      behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+    });
+  }
+
+  function initTrackDrag(track) {
+    let startX = 0;
+    let startScroll = 0;
+    let dragging = false;
+    let down = false;
+    track.addEventListener("pointerdown", (event) => {
+      if (event.pointerType !== "mouse" || event.button !== 0) return;
+      down = true;
+      dragging = false;
+      startX = event.clientX;
+      startScroll = track.scrollLeft;
+    });
+    track.addEventListener("pointermove", (event) => {
+      if (!down) return;
+      const delta = event.clientX - startX;
+      if (Math.abs(delta) > 5) dragging = true;
+      if (!dragging) return;
+      event.preventDefault();
+      track.classList.add("dragging");
+      track.scrollLeft = startScroll - delta;
+    });
+    const stopDrag = () => {
+      if (dragging) {
+        suppressGalleryClick = true;
+        setTimeout(() => { suppressGalleryClick = false; }, 0);
+      }
+      down = false;
+      dragging = false;
+      track.classList.remove("dragging");
+    };
+    track.addEventListener("pointerup", stopDrag);
+    track.addEventListener("pointercancel", stopDrag);
+    track.addEventListener("pointerleave", stopDrag);
+    track.addEventListener("dragstart", (event) => event.preventDefault());
+  }
+
+  function renderLightbox() {
+    if (!lightboxState) return;
+    const { id, index } = lightboxState;
+    const images = imageManifest[id] || [];
+    const project = content[activeLanguage].projects.find((item) => item.id === id);
+    if (!images.length || !project) return;
+    const dialog = document.getElementById("project-lightbox");
+    dialog.setAttribute("aria-label", content[activeLanguage].gallery_preview);
+    const photo = document.getElementById("lightbox-image");
+    photo.src = images[index];
+    photo.alt = `${project.title} — ${index + 1}/${images.length}`;
+    document.getElementById("lightbox-caption").textContent = photo.alt;
+    document.getElementById("lightbox-close").setAttribute("aria-label", content[activeLanguage].gallery_close);
+    document.getElementById("lightbox-previous").setAttribute("aria-label", content[activeLanguage].gallery_previous);
+    document.getElementById("lightbox-next").setAttribute("aria-label", content[activeLanguage].gallery_next);
+    dialog.querySelectorAll(".lightbox-arrow").forEach((button) => { button.hidden = images.length < 2; });
+    dialog.querySelector(".lightbox-view").classList.toggle("single", images.length < 2);
+  }
+
+  function stepLightbox(direction) {
+    if (!lightboxState) return;
+    const count = imageManifest[lightboxState.id]?.length || 0;
+    if (count < 2) return;
+    lightboxState.index = (lightboxState.index + direction + count) % count;
+    renderLightbox();
+  }
+
+  function initProjectGallery() {
+    const projectsSection = document.getElementById("projects");
+    const dialog = document.getElementById("project-lightbox");
+    projectsSection.addEventListener("click", (event) => {
+      const toggle = event.target.closest("[data-project-toggle]");
+      if (toggle) {
+        const id = toggle.dataset.projectToggle;
+        if (activeGallery) setGalleryOpen(activeGallery, false);
+        activeGallery = activeGallery === id ? null : id;
+        if (activeGallery) setGalleryOpen(activeGallery, true);
+        return;
+      }
+      const step = event.target.closest("[data-gallery-step]");
+      if (step) {
+        scrollGallery(step.dataset.projectId, Number(step.dataset.galleryStep));
+        return;
+      }
+      const image = event.target.closest("[data-gallery-image]");
+      if (!image || suppressGalleryClick) return;
+      lightboxState = { id: image.dataset.galleryImage, index: Number(image.dataset.imageIndex) };
+      lightboxReturnFocus = image;
+      renderLightbox();
+      dialog.showModal();
+    });
+    projectsSection.addEventListener("keydown", (event) => {
+      if (!event.target.matches("[data-gallery-track]")) return;
+      if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+        event.preventDefault();
+        scrollGallery(event.target.dataset.galleryTrack, event.key === "ArrowLeft" ? -1 : 1);
+      }
+    });
+    document.getElementById("lightbox-close").addEventListener("click", () => dialog.close());
+    document.getElementById("lightbox-previous").addEventListener("click", () => stepLightbox(-1));
+    document.getElementById("lightbox-next").addEventListener("click", () => stepLightbox(1));
+    dialog.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+        event.preventDefault();
+        stepLightbox(event.key === "ArrowLeft" ? -1 : 1);
+      }
+    });
+    dialog.addEventListener("click", (event) => { if (event.target === dialog) dialog.close(); });
+    dialog.addEventListener("close", () => {
+      document.getElementById("lightbox-image").removeAttribute("src");
+      lightboxState = null;
+      if (lightboxReturnFocus?.isConnected) lightboxReturnFocus.focus();
+      lightboxReturnFocus = null;
+    });
   }
 
   function renderExperience(lang) {
@@ -592,6 +830,7 @@
   }
 
   function setLanguage(lang) {
+    activeLanguage = lang;
     document.documentElement.lang = lang;
     renderStaticText(lang);
     renderHero(lang);
@@ -600,6 +839,7 @@
     renderEducation(lang);
     renderExperience(lang);
     renderProjects(lang);
+    if (lightboxState) renderLightbox();
     renderContact(lang);
     langBtns.forEach((btn) => {
       btn.classList.toggle("active", btn.dataset.lang === lang);
