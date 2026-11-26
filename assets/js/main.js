@@ -2,7 +2,7 @@
   const PATHS = {
     cv: "assets/files/Pham_Thi_Yen_Ngoc_CV_AI.pdf",
     avatar: "assets/images/avatar.jpg",
-    preview: "assets/images/projects/tourism-ai-chatbot/6.png",
+    preview: "assets/images/projects/tourism-ai-chatbot/preview.jpg",
   };
 
   const NAV_ITEMS = [
