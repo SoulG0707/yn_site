@@ -1,7 +1,8 @@
 (() => {
   const PATHS = {
     cv: "assets/files/Pham_Thi_Yen_Ngoc_CV_AI.pdf",
-    avatar: "assets/images/avatar.png",
+    avatar: "assets/images/avatar.jpg",
+    preview: "assets/images/projects/tourism-ai-chatbot/6.png",
   };
 
   const NAV_ITEMS = [
@@ -23,11 +24,11 @@
 <header class="site-header">
     <div class="nav">
         <a class="brand" href="#home" aria-label="${profile.name}">YN<span>.</span></a>
-        <nav id="nav-links" class="nav-links"></nav>
+        <nav id="nav-links" class="nav-links" aria-label="Main navigation"></nav>
         <div class="actions">
-            <div class="lang-switch" id="lang-switch">
-                <button class="lang-btn" data-lang="en" type="button">EN</button>
-                <button class="lang-btn" data-lang="vi" type="button">VI</button>
+            <div class="lang-switch" id="lang-switch" role="group" aria-label="Language">
+                <button class="lang-btn" data-lang="en" type="button" lang="en" aria-label="English">EN</button>
+                <button class="lang-btn" data-lang="vi" type="button" lang="vi" aria-label="Tiếng Việt">VI</button>
             </div>
             <a class="btn resume-btn" id="btn-cv-inline" href="${PATHS.cv}" download><span data-i18n="btn_cv">Resume</span></a>
             <button class="menu-toggle" id="menu-toggle" type="button" aria-controls="nav-links" aria-expanded="false"><span data-i18n="menu_label">Menu</span><i class="fa-solid fa-bars" aria-hidden="true"></i></button>
@@ -37,21 +38,30 @@
 
 <main class="wrap">
     <section id="home" class="hero" aria-labelledby="hero-name">
-        <p class="hero-eyebrow" id="hero-eyebrow"></p>
-        <h1 class="hero-name" id="hero-name">${profile.name}.</h1>
-        <p class="hero-statement" id="hero-statement"></p>
-        <p class="hero-desc" id="hero-desc"></p>
-        <div class="hero-actions">
-            <a class="btn primary" href="#projects" data-i18n="btn_view_projects">Explore My Work</a>
-            <a class="btn ghost" id="btn-cv" href="${PATHS.cv}" download data-i18n="btn_download_cv">Download CV</a>
+        <div class="hero-copy">
+            <p class="hero-eyebrow" data-i18n="hero_eyebrow"></p>
+            <h1 class="hero-name" id="hero-name">${profile.name}</h1>
+            <p class="hero-statement" data-i18n="hero_statement"></p>
+            <p class="hero-desc" data-i18n="hero_desc"></p>
+            <div class="hero-actions">
+                <a class="btn primary" href="#projects" data-i18n="btn_view_projects">View projects</a>
+                <a class="btn ghost" id="btn-cv" href="${PATHS.cv}" download data-i18n="btn_download_cv">Download CV</a>
+            </div>
         </div>
+        <figure class="hero-preview" id="hero-preview">
+            <img id="hero-image" src="${PATHS.preview}" width="540" height="392" fetchpriority="high" alt="">
+            <figcaption>
+                <span>Tourism AI Chatbot</span>
+                <span data-i18n="hero_preview_caption"></span>
+            </figcaption>
+        </figure>
     </section>
 
     <section id="about" aria-labelledby="about-title">
         <div class="section-head"><h2 class="section-label" id="about-title" data-i18n="about_title">About Me</h2></div>
         <div class="about-grid">
             <div class="about-copy" id="about-copy"></div>
-            <img class="about-photo" id="about-photo" src="${PATHS.avatar}" alt="${profile.name}" loading="lazy" decoding="async">
+            <img class="about-photo" id="about-photo" src="${PATHS.avatar}" alt="${profile.name}" width="512" height="728" loading="lazy" decoding="async">
         </div>
     </section>
 
@@ -81,77 +91,82 @@
     </section>
 
     <section id="contact" class="contact-section" aria-labelledby="contact-title">
-        <p class="contact-eyebrow" data-i18n="contact_eyebrow">What's Next?</p>
-        <h2 class="section-label" id="contact-title" data-i18n="contact_title">Get In Touch</h2>
-        <p class="contact-intro" data-i18n="contact_sub">Open to discussing AI and software engineering opportunities.</p>
-        <a class="btn primary contact-cta" href="mailto:${profile.email}" data-i18n="contact_cta">Say Hello</a>
+        <div class="contact-copy">
+            <h2 class="section-label" id="contact-title" data-i18n="contact_title">Contact</h2>
+            <p class="contact-intro" data-i18n="contact_sub">Open to discussing AI and software engineering opportunities.</p>
+            <a class="btn primary contact-cta" href="mailto:${profile.email}" data-i18n="contact_cta">Send an email</a>
+        </div>
         <div class="contact-box" id="contact-box"></div>
     </section>
 </main>
 
-<footer class="footer"><span id="footer-copy"></span><a href="${profile.github}" target="_blank" rel="noreferrer">GitHub</a></footer>
-<button id="top" type="button" aria-label="Back to top">↑</button>
+<footer class="footer"><div class="footer-inner"><span id="footer-copy"></span><a href="${profile.github}" target="_blank" rel="noreferrer">GitHub</a></div></footer>
+<button id="top" class="icon-button" type="button" aria-label="Back to top"><span aria-hidden="true">↑</span></button>
 <dialog id="project-lightbox" class="project-lightbox" aria-label="Project image preview">
     <div class="lightbox-bar">
         <span id="lightbox-caption"></span>
-        <button id="lightbox-close" type="button" aria-label="Close image preview">×</button>
+        <button id="lightbox-close" class="icon-button" type="button" aria-label="Close image preview"><span aria-hidden="true">×</span></button>
     </div>
     <div class="lightbox-view">
-        <button id="lightbox-previous" class="lightbox-arrow" type="button" aria-label="Previous image">←</button>
+        <button id="lightbox-previous" class="icon-button lightbox-arrow" type="button" aria-label="Previous image"><span aria-hidden="true">←</span></button>
         <img id="lightbox-image" alt="">
-        <button id="lightbox-next" class="lightbox-arrow" type="button" aria-label="Next image">→</button>
+        <button id="lightbox-next" class="icon-button lightbox-arrow" type="button" aria-label="Next image"><span aria-hidden="true">→</span></button>
     </div>
 </dialog>`;
 
   const content = {
     en: {
-      meta_title: "Phạm Thị Yến Ngọc | AI Engineer",
-      meta_desc: "Phạm Thị Yến Ngọc builds practical AI applications with machine learning, computer vision, LLMs, and software engineering.",
+      meta_title: "Phạm Thị Yến Ngọc | AI Engineer & Software Developer",
+      meta_desc: "Portfolio of Phạm Thị Yến Ngọc, an AI engineer and software developer working with machine learning, data processing, and computer vision.",
       nav_about: "About",
       nav_skills: "Skills",
       nav_experience: "Experience",
       nav_projects: "Projects",
       nav_contact: "Contact",
+      nav_label: "Main navigation",
+      language_label: "Language",
       menu_label: "Menu",
       btn_cv: "Resume",
       btn_download_cv: "Download CV",
-      btn_view_projects: "Explore My Work",
-      hero_eyebrow: "Hi, my name is",
-      hero_statement: "I build intelligent systems.",
-      hero_desc: "I’m an AI-focused software engineer building practical applications with machine learning, LLMs, computer vision, and modern web technologies.",
-      about_title: "About Me",
+      btn_view_projects: "View projects",
+      hero_eyebrow: "AI Engineer · Software Developer",
+      hero_statement: "Machine learning and data processing",
+      hero_desc: "I’ve built applications for document retrieval, conversational AI, and computer vision. I’m looking for opportunities to build practical AI systems.",
+      hero_preview_caption: "Conversational itinerary planning",
+      hero_preview_alt: "The BlueTravel chatbot adapts a Ho Chi Minh City itinerary to a two-day trip after a follow-up question",
+      about_title: "About me",
       about_paragraphs: [
-        "I’m Phạm Thị Yến Ngọc, an AI engineer based in Ho Chi Minh City. I enjoy turning machine learning and language model ideas into useful software, from conversational assistants to computer vision applications.",
-        "At the National Archives Center II, I worked on document chatbots, Vietnamese-language information retrieval, OCR processing, and software customization. My work spans AI, backend development, and deployment.",
+        "I’m Phạm Thị Yến Ngọc, an AI engineer and software developer based in Ho Chi Minh City. I build applications with machine learning and language models, from conversational assistants to computer vision systems.",
+        "At National Archives Center II, I developed document chatbots for Vietnamese-language search, processed OCR data, and customized software. My work spans AI, backend development, and deployment.",
       ],
-      skills_title: "Technical Skills",
+      skills_title: "Technical skills",
       skills_sub: "Technologies I use to build and ship AI applications.",
       skills: [
         {
-          title: "AI / ML & Computer Vision",
-          tags: ["Python", "TensorFlow", "PyTorch", "OpenCV", "YOLO", "Tesseract OCR"],
+          title: "Programming & frontend",
+          tags: ["Python", "JavaScript", "TypeScript", "React.js", "Next.js", "Vite", "HTML/CSS"],
         },
         {
-          title: "LLMs & AI Tools",
+          title: "AI/ML & computer vision",
+          tags: ["TensorFlow", "PyTorch", "OpenCV", "YOLO", "Tesseract OCR"],
+        },
+        {
+          title: "LLM & AI tools",
           tags: ["Ollama", "LlamaIndex", "Transformers", "OpenAI API", "Gemini API", "MCP"],
         },
         {
-          title: "Backend & Databases",
+          title: "Backend & databases",
           tags: ["FastAPI", "Node.js", "SQLite", "MySQL", "PostgreSQL", "SQL Server", "Neo4j"],
         },
         {
-          title: "Frontend",
-          tags: ["JavaScript", "TypeScript", "React.js", "Next.js", "Vite", "HTML/CSS"],
-        },
-        {
-          title: "DevOps & Deployment",
+          title: "DevOps & deployment",
           tags: ["Docker", "Cloudflare Workers", "IIS"],
         },
       ],
       edu_title: "Education",
       edu: [
         {
-          time: "2022 - present",
+          time: "2022 – present",
           place: "Hoa Sen University",
           title: "Bachelor of Science in Artificial Intelligence",
           desc: "Completed the Artificial Intelligence program with a GPA of 3.2/4.0; awaiting degree conferral.",
@@ -165,25 +180,25 @@
         "TOEIC Listening & Reading: 635, Speaking & Writing: 240 (2024)",
       ],
       exp_title: "Experience",
-      exp_sub: "AI systems, software engineering, and deployment.",
+      exp_sub: "Software engineering, AI, and data processing.",
       experience: [
         {
-          time: "Jul 2025 - Oct 2026",
+          time: "Jul 2025 – Oct 2026",
           company: "Trung Tâm Lưu Trữ Quốc Gia II",
-          role: "DevOps, Software Engineer",
+          role: "Software Engineer · AI Engineer",
+          focus: "Application development and data processing",
           bullets: [
-            "Built a Q&A chatbot for administrative documents from Ho Chi Minh City and Binh Duong.",
-            "Developed a Vietnamese AI chatbot for querying People's Armed Forces Heroes records in Long An Province.",
-            "Performed OCR processing on scanned administrative documents.",
-            "Customized software to meet the requirements of Ben Tre Data Center.",
-            "Imported administrative documents and provided technical guidance to software users.",
+            "Developed AI chatbots with Python and SQLite for administrative documents from Ho Chi Minh City and Binh Duong and for historical records on People’s Armed Forces Heroes in Long An.",
+            "Processed, cleaned, and validated OCR data from scanned administrative documents to improve accuracy and searchability.",
+            "Customized software to improve operational workflows and meet requirements, including those of the Ben Tre Data Center.",
+            "Provided technical support, troubleshot system issues, and imported and managed digital records.",
           ],
         },
       ],
       projects_title: "Projects",
       projects_sub: "Selected work in LLMs and computer vision.",
-      featured_title: "Featured Projects",
-      other_title: "Other Projects",
+      featured_title: "Featured projects",
+      other_title: "Other projects",
       repository_label: "View repository",
       gallery_previous: "Previous image",
       gallery_next: "Next image",
@@ -193,10 +208,11 @@
       gallery_preview: "Project image preview",
       gallery_image: "Open image",
       gallery_count: "images",
+      gallery_count_one: "image",
       projects: [
         {
           id: "tourism-ai-chatbot",
-          date: "Jul 2025 - Dec 2025",
+          date: "Jul 2025 – Dec 2025",
           featured: true,
           badge: "Next.js · FastAPI · MCP",
           title: "Tourism AI Chatbot",
@@ -206,7 +222,7 @@
         },
         {
           id: "chatbot-hsu",
-          date: "Jun 2025 - Sep 2025",
+          date: "Jun 2025 – Sep 2025",
           featured: true,
           badge: "LLaMA 3 · RAG · FastAPI",
           title: "Chatbot HSU",
@@ -216,17 +232,17 @@
         },
         {
           id: "face-recognition-2",
-          date: "Feb 2025 - Jul 2025",
+          date: "Feb 2025 – Jul 2025",
           featured: true,
           badge: "InsightFace · OpenCV · PyQt5",
           title: "Face Recognition 2.0",
           desc: "A real-time attendance system with facial recognition and emotion detection.",
-          bullets: ["Implemented face registration, model training, and student identification with InsightFace and OpenCV.", "Built a PyQt5 interface backed by SQL Server."],
+          bullets: ["Implemented face registration, model training, and student identification with InsightFace and OpenCV.", "Built a PyQt5 interface and integrated SQL Server to manage attendance records and emotion data."],
           link: "https://github.com/SoulG0707/Face_Recognition_2.0",
         },
         {
           id: "handwritten-digit-recognition",
-          date: "Nov 2024 - Jan 2025",
+          date: "Nov 2024 – Jan 2025",
           badge: "YOLO · TensorFlow · OCR",
           title: "Handwritten Digit Recognition",
           desc: "Built a handwritten date recognition system using Ultralytics YOLO, OpenCV, TensorFlow/Keras CNN, and Tesseract OCR; developed the desktop interface with PyQt5.",
@@ -235,7 +251,7 @@
         },
         {
           id: "face-recognition",
-          date: "Apr 2024 - Jul 2024",
+          date: "Apr 2024 – Jul 2024",
           badge: "OpenCV · dlib · PyQt5",
           title: "Face Recognition",
           desc: "Built a real-time face recognition attendance system using OpenCV, dlib, face_recognition, PyQt5, and MySQL.",
@@ -243,10 +259,9 @@
           link: "https://github.com/SoulG0707/Face_Recognition",
         },
       ],
-      contact_eyebrow: "What’s Next?",
-      contact_title: "Get In Touch",
+      contact_title: "Contact",
       contact_sub: "I’m open to conversations about AI and software engineering opportunities. Have a project or role in mind? I’d love to hear from you.",
-      contact_cta: "Say Hello",
+      contact_cta: "Send an email",
       back_to_top: "Back to top",
       contact: [
         {
@@ -272,53 +287,57 @@
       footer: "© 2026 Phạm Thị Yến Ngọc",
     },
     vi: {
-      meta_title: "Phạm Thị Yến Ngọc | AI Engineer",
-      meta_desc: "Phạm Thị Yến Ngọc phát triển ứng dụng AI thực tiễn với machine learning, thị giác máy tính, LLM và kỹ thuật phần mềm.",
+      meta_title: "Phạm Thị Yến Ngọc | Kỹ sư AI & Phát triển phần mềm",
+      meta_desc: "Portfolio của Phạm Thị Yến Ngọc, kỹ sư AI và nhà phát triển phần mềm, với các dự án về học máy, xử lý dữ liệu và thị giác máy tính.",
       nav_about: "Giới thiệu",
       nav_skills: "Kỹ năng",
       nav_experience: "Kinh nghiệm",
       nav_projects: "Dự án",
       nav_contact: "Liên hệ",
+      nav_label: "Điều hướng chính",
+      language_label: "Ngôn ngữ",
       menu_label: "Menu",
       btn_cv: "CV",
       btn_download_cv: "Tải CV",
-      btn_view_projects: "Khám phá dự án",
-      hero_eyebrow: "Xin chào, tôi là",
-      hero_statement: "Tôi xây dựng hệ thống thông minh.",
-      hero_desc: "Tôi là kỹ sư phần mềm tập trung vào AI, phát triển ứng dụng thực tiễn với machine learning, LLM, thị giác máy tính và công nghệ web hiện đại.",
+      btn_view_projects: "Xem dự án",
+      hero_eyebrow: "Kỹ sư AI · Phát triển phần mềm",
+      hero_statement: "Học máy và xử lý dữ liệu",
+      hero_desc: "Tôi đã phát triển ứng dụng tra cứu tài liệu, AI hội thoại và thị giác máy tính. Tôi mong muốn tham gia xây dựng các hệ thống AI phục vụ nhu cầu thực tế.",
+      hero_preview_caption: "Lập lịch trình qua hội thoại",
+      hero_preview_alt: "Chatbot BlueTravel điều chỉnh lịch trình tham quan TP. Hồ Chí Minh còn hai ngày sau câu hỏi tiếp theo",
       about_title: "Về tôi",
       about_paragraphs: [
-        "Tôi là Phạm Thị Yến Ngọc, kỹ sư AI tại TP. Hồ Chí Minh. Tôi thích biến các ý tưởng về machine learning và mô hình ngôn ngữ thành sản phẩm hữu ích, từ trợ lý hội thoại đến ứng dụng thị giác máy tính.",
-        "Tại Trung tâm Lưu trữ Quốc gia II, tôi tham gia xây dựng chatbot tài liệu, tra cứu thông tin tiếng Việt, xử lý OCR và tùy chỉnh phần mềm. Công việc của tôi trải rộng từ AI, backend đến triển khai hệ thống.",
+        "Tôi là Phạm Thị Yến Ngọc, kỹ sư AI và nhà phát triển phần mềm tại TP. Hồ Chí Minh. Tôi ứng dụng học máy và mô hình ngôn ngữ để xây dựng các sản phẩm từ trợ lý hội thoại đến hệ thống thị giác máy tính.",
+        "Tại Trung tâm Lưu trữ Quốc gia II, tôi phát triển chatbot tra cứu tài liệu tiếng Việt, xử lý dữ liệu OCR và tùy chỉnh phần mềm. Công việc của tôi bao gồm phát triển AI, backend và triển khai hệ thống.",
       ],
       skills_title: "Kỹ năng kỹ thuật",
       skills_sub: "Công nghệ tôi sử dụng để xây dựng và triển khai ứng dụng AI.",
       skills: [
         {
-          title: "AI / ML & Thị giác máy tính",
-          tags: ["Python", "TensorFlow", "PyTorch", "OpenCV", "YOLO", "Tesseract OCR"],
+          title: "Lập trình & frontend",
+          tags: ["Python", "JavaScript", "TypeScript", "React.js", "Next.js", "Vite", "HTML/CSS"],
         },
         {
-          title: "LLM & Công cụ AI",
+          title: "AI/ML & thị giác máy tính",
+          tags: ["TensorFlow", "PyTorch", "OpenCV", "YOLO", "Tesseract OCR"],
+        },
+        {
+          title: "LLM & công cụ AI",
           tags: ["Ollama", "LlamaIndex", "Transformers", "OpenAI API", "Gemini API", "MCP"],
         },
         {
-          title: "Backend & Cơ sở dữ liệu",
+          title: "Backend & cơ sở dữ liệu",
           tags: ["FastAPI", "Node.js", "SQLite", "MySQL", "PostgreSQL", "SQL Server", "Neo4j"],
         },
         {
-          title: "Frontend",
-          tags: ["JavaScript", "TypeScript", "React.js", "Next.js", "Vite", "HTML/CSS"],
-        },
-        {
-          title: "DevOps & Triển khai",
+          title: "DevOps & triển khai",
           tags: ["Docker", "Cloudflare Workers", "IIS"],
         },
       ],
       edu_title: "Học vấn",
       edu: [
         {
-          time: "2022 - Hiện tại",
+          time: "2022 – hiện tại",
           place: "Hoa Sen University",
           title: "Cử nhân Khoa học ngành Trí tuệ Nhân tạo",
           desc: "Hoàn thành chương trình Trí tuệ Nhân tạo với GPA 3.2/4.0; đang chờ cấp bằng.",
@@ -332,18 +351,18 @@
         "TOEIC Listening & Reading: 635, Speaking & Writing: 240 (2024)",
       ],
       exp_title: "Kinh nghiệm",
-      exp_sub: "Hệ thống AI, kỹ thuật phần mềm và triển khai.",
+      exp_sub: "Kỹ thuật phần mềm, AI và xử lý dữ liệu.",
       experience: [
         {
-          time: "07/2025 - 10/2026",
+          time: "07/2025 – 10/2026",
           company: "Trung Tâm Lưu Trữ Quốc Gia II",
-          role: "DevOps, Software Engineer",
+          role: "Kỹ sư phần mềm · Kỹ sư AI",
+          focus: "Phát triển ứng dụng và xử lý dữ liệu",
           bullets: [
-            "Xây dựng chatbot hỏi đáp cho tài liệu hành chính từ TP. Hồ Chí Minh và Bình Dương.",
-            "Phát triển chatbot AI tiếng Việt để tra cứu hồ sơ các Anh hùng Lực lượng vũ trang nhân dân tại tỉnh Long An.",
-            "Xử lý OCR trên tài liệu hành chính được quét.",
-            "Tùy chỉnh phần mềm theo yêu cầu của Trung tâm Dữ liệu Bến Tre.",
-            "Nhập tài liệu hành chính vào hệ thống và hướng dẫn kỹ thuật cho người dùng.",
+            "Phát triển chatbot AI với Python và SQLite để tra cứu tài liệu hành chính từ TP. Hồ Chí Minh và Bình Dương, cùng hồ sơ lịch sử về các Anh hùng Lực lượng vũ trang nhân dân tại Long An.",
+            "Xử lý, làm sạch và kiểm tra dữ liệu OCR từ tài liệu hành chính đã quét để tăng độ chính xác và khả năng tìm kiếm.",
+            "Tùy chỉnh phần mềm theo yêu cầu nghiệp vụ, trong đó có yêu cầu của Trung tâm Dữ liệu Bến Tre.",
+            "Hỗ trợ kỹ thuật, xử lý sự cố hệ thống, nhập và quản lý hồ sơ số.",
           ],
         },
       ],
@@ -360,10 +379,11 @@
       gallery_preview: "Xem ảnh dự án",
       gallery_image: "Mở ảnh",
       gallery_count: "ảnh",
+      gallery_count_one: "ảnh",
       projects: [
         {
           id: "tourism-ai-chatbot",
-          date: "07/2025 - 12/2025",
+          date: "07/2025 – 12/2025",
           featured: true,
           badge: "Next.js · FastAPI · MCP",
           title: "Tourism AI Chatbot",
@@ -373,7 +393,7 @@
         },
         {
           id: "chatbot-hsu",
-          date: "06/2025 - 09/2025",
+          date: "06/2025 – 09/2025",
           featured: true,
           badge: "LLaMA 3 · RAG · FastAPI",
           title: "Chatbot HSU",
@@ -383,17 +403,17 @@
         },
         {
           id: "face-recognition-2",
-          date: "02/2025 - 07/2025",
+          date: "02/2025 – 07/2025",
           featured: true,
           badge: "InsightFace · OpenCV · PyQt5",
           title: "Face Recognition 2.0",
           desc: "Hệ thống điểm danh thời gian thực bằng nhận dạng khuôn mặt và phát hiện cảm xúc.",
-          bullets: ["Triển khai đăng ký khuôn mặt, huấn luyện mô hình và nhận diện sinh viên bằng InsightFace và OpenCV.", "Xây dựng giao diện PyQt5 kết nối SQL Server."],
+          bullets: ["Triển khai đăng ký khuôn mặt, huấn luyện mô hình và nhận diện sinh viên bằng InsightFace và OpenCV.", "Xây dựng giao diện PyQt5 và tích hợp SQL Server để quản lý dữ liệu điểm danh và cảm xúc."],
           link: "https://github.com/SoulG0707/Face_Recognition_2.0",
         },
         {
           id: "handwritten-digit-recognition",
-          date: "11/2024 - 01/2025",
+          date: "11/2024 – 01/2025",
           badge: "YOLO · TensorFlow · OCR",
           title: "Handwritten Digit Recognition",
           desc: "Xây dựng hệ thống nhận dạng ngày viết tay bằng Ultralytics YOLO, OpenCV, TensorFlow/Keras CNN và Tesseract OCR; phát triển giao diện desktop với PyQt5.",
@@ -402,7 +422,7 @@
         },
         {
           id: "face-recognition",
-          date: "04/2024 - 07/2024",
+          date: "04/2024 – 07/2024",
           badge: "OpenCV · dlib · PyQt5",
           title: "Face Recognition",
           desc: "Xây dựng hệ thống điểm danh nhận dạng khuôn mặt thời gian thực bằng OpenCV, dlib, face_recognition, PyQt5 và MySQL.",
@@ -410,10 +430,9 @@
           link: "https://github.com/SoulG0707/Face_Recognition",
         },
       ],
-      contact_eyebrow: "Tiếp theo là gì?",
-      contact_title: "Liên hệ với tôi",
+      contact_title: "Liên hệ",
       contact_sub: "Tôi sẵn sàng trao đổi về cơ hội trong lĩnh vực AI và kỹ thuật phần mềm. Nếu bạn có dự án hoặc vị trí phù hợp, hãy liên hệ với tôi.",
-      contact_cta: "Gửi lời chào",
+      contact_cta: "Gửi email",
       back_to_top: "Về đầu trang",
       contact: [
         {
@@ -476,7 +495,11 @@
 
   function mountLayout() {
     const app = document.getElementById("app");
-    if (app) app.innerHTML = layout;
+    if (!app) return;
+    app.innerHTML = layout;
+    document.getElementById("hero-image").addEventListener("error", () => {
+      document.getElementById("hero-preview").hidden = true;
+    }, { once: true });
   }
 
   function cacheDom() {
@@ -526,22 +549,30 @@
     if (activeGallery && !imageManifest[activeGallery]?.length) activeGallery = null;
     featuredProjects.innerHTML = projects.filter((p) => p.featured)
       .map(
-        (p, index) => `
+        (p) => `
             <article class="featured-project">
-                <div class="project-index"><span>${String(index + 1).padStart(2, "0")}</span><time class="project-date">${p.date}</time></div>
+                <p class="project-date">${p.date}</p>
                 <div class="project-content">
                     ${renderProjectHeading(p, lang)}
                     <p class="project-desc">${p.desc}</p>
                     <ul class="project-bullets">${p.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>
                     <p class="project-tech">${p.badge}</p>
-                    <a class="project-link" href="${p.link}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> ${content[lang].repository_label}<span class="sr-only">: ${p.title}</span> <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+                    ${renderRepositoryLink(p, lang)}
                 </div>
                 ${renderGalleryShell(p, lang)}
             </article>`,
       )
       .join("");
     otherProjects.innerHTML = projects.filter((p) => !p.featured)
-      .map((p) => `<article class="other-project"><time class="project-date">${p.date}</time>${renderProjectHeading(p, lang)}<p>${p.desc}</p><p class="project-tech">${p.badge}</p><a class="project-link" href="${p.link}" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github" aria-hidden="true"></i> ${content[lang].repository_label}<span class="sr-only">: ${p.title}</span> <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>${renderGalleryShell(p, lang)}</article>`)
+      .map((p) => `
+            <article class="other-project">
+                <p class="project-date">${p.date}</p>
+                ${renderProjectHeading(p, lang)}
+                <p class="project-desc">${p.desc}</p>
+                <p class="project-tech">${p.badge}</p>
+                ${renderRepositoryLink(p, lang)}
+                ${renderGalleryShell(p, lang)}
+            </article>`)
       .join("");
     if (activeGallery) populateGallery(activeGallery);
   }
@@ -549,18 +580,33 @@
   function renderProjectHeading(project, lang) {
     if (!imageManifest[project.id]?.length) return `<h4>${project.title}</h4>`;
     const expanded = activeGallery === project.id;
-    return `<h4><button class="project-title-button${expanded ? " active" : ""}" id="project-toggle-${project.id}" type="button" data-project-toggle="${project.id}" aria-controls="gallery-${project.id}" aria-expanded="${expanded}" aria-label="${expanded ? content[lang].gallery_hide : content[lang].gallery_open}: ${project.title}">${project.title}<span class="project-title-indicator" aria-hidden="true">${expanded ? "−" : "+"}</span></button></h4>`;
+    const label = expanded ? content[lang].gallery_hide : content[lang].gallery_open;
+    return `<h4>
+        <button class="project-title-button${expanded ? " active" : ""}" id="project-toggle-${project.id}" type="button" data-project-toggle="${project.id}" aria-controls="gallery-${project.id}" aria-expanded="${expanded}" aria-label="${label}: ${project.title}">
+            <span>${project.title}</span>
+            <span class="project-gallery-action" aria-hidden="true"><i class="fa-regular fa-images"></i><span class="project-title-indicator">${label}</span></span>
+        </button>
+    </h4>`;
+  }
+
+  function renderRepositoryLink(project, lang) {
+    return `<a class="project-link" href="${project.link}" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-github" aria-hidden="true"></i>
+        <span>${content[lang].repository_label}<span class="sr-only">: ${project.title}</span></span>
+    </a>`;
   }
 
   function renderGalleryShell(project, lang) {
     const count = imageManifest[project.id]?.length || 0;
     if (!count) return "";
     const expanded = activeGallery === project.id;
+    const t = content[lang];
+    const countLabel = count === 1 ? t.gallery_count_one : t.gallery_count;
     return `<div class="project-gallery${expanded ? " open" : ""}" id="gallery-${project.id}" role="region" aria-labelledby="project-toggle-${project.id}" aria-hidden="${!expanded}" ${expanded ? "" : "inert"}>
       <div class="project-gallery-inner">
         <div class="gallery-toolbar">
-          <span>${count} ${content[lang].gallery_count}</span>
-          ${count > 1 ? `<div class="gallery-arrows"><button type="button" data-gallery-step="-1" data-project-id="${project.id}" aria-label="${content[lang].gallery_previous}">←</button><button type="button" data-gallery-step="1" data-project-id="${project.id}" aria-label="${content[lang].gallery_next}">→</button></div>` : ""}
+          <span>${count} ${countLabel}</span>
+          ${count > 1 ? `<div class="gallery-arrows"><button class="icon-button" type="button" data-gallery-step="-1" data-project-id="${project.id}" aria-label="${t.gallery_previous}"><span aria-hidden="true">←</span></button><button class="icon-button" type="button" data-gallery-step="1" data-project-id="${project.id}" aria-label="${t.gallery_next}"><span aria-hidden="true">→</span></button></div>` : ""}
         </div>
         <div class="gallery-track" data-gallery-track="${project.id}" role="group" aria-label="${project.title}" tabindex="0"></div>
       </div>
@@ -605,8 +651,9 @@
     toggle.classList.toggle("active", open);
     toggle.setAttribute("aria-expanded", String(open));
     const project = content[activeLanguage].projects.find((item) => item.id === id);
-    if (project) toggle.setAttribute("aria-label", `${open ? content[activeLanguage].gallery_hide : content[activeLanguage].gallery_open}: ${project.title}`);
-    toggle.querySelector(".project-title-indicator").textContent = open ? "−" : "+";
+    const label = open ? content[activeLanguage].gallery_hide : content[activeLanguage].gallery_open;
+    if (project) toggle.setAttribute("aria-label", `${label}: ${project.title}`);
+    toggle.querySelector(".project-title-indicator").textContent = label;
     panel.classList.toggle("open", open);
     panel.setAttribute("aria-hidden", String(!open));
     panel.inert = !open;
@@ -742,9 +789,11 @@
       .map(
         (item) => `
             <article class="exp-item">
-                <time class="exp-time">${item.time}</time>
+                <p class="exp-time">${item.time}</p>
                 <div class="exp-content">
-                    <h3>${item.role} <span>@ ${item.company}</span></h3>
+                    <h3>${item.role}</h3>
+                    <p class="exp-company">${item.company}</p>
+                    <p class="exp-focus">${item.focus}</p>
                     <ul class="exp-bullets">
                         ${item.bullets.map((b) => `<li>${b}</li>`).join("")}
                     </ul>
@@ -760,11 +809,13 @@
         .map(
           (item) => `
                 <article class="edu-card">
-                    <time class="edu-time">${item.time}</time>
-                    <h3>${item.title}</h3>
-                    <div class="edu-place">${item.place}</div>
-                    <p class="edu-desc">${item.desc}</p>
-                    ${item.bullets?.length ? `<ul class="edu-courses">${item.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>` : ""}
+                    <p class="edu-time">${item.time}</p>
+                    <div class="edu-content">
+                        <h3>${item.title}</h3>
+                        <p class="edu-place">${item.place}</p>
+                        <p class="edu-desc">${item.desc}</p>
+                        ${item.bullets?.length ? `<ul class="edu-courses">${item.bullets.map((b) => `<li>${b}</li>`).join("")}</ul>` : ""}
+                    </div>
                 </article>`,
         )
         .join("");
@@ -784,8 +835,10 @@
           const rel = target === "_blank" ? 'rel="noopener noreferrer"' : "";
           return `<a class="contact-item" href="${c.href}" target="${target}" ${rel}>
                     <i class="${c.icon}" aria-hidden="true"></i>
-                    <span>${c.label}</span>
-                    <span class="contact-value">${c.value}</span>
+                    <span class="contact-detail">
+                        <span class="contact-name">${c.label}</span>
+                        <span class="contact-value">${c.value}</span>
+                    </span>
                 </a>`;
         })
         .join("");
@@ -795,12 +848,7 @@
   }
 
   function renderHero(lang) {
-    const t = content[lang];
-
-    setText("hero-eyebrow", t.hero_eyebrow);
-    setText("hero-name", `${profile.name}.`);
-    setText("hero-statement", t.hero_statement);
-    setText("hero-desc", t.hero_desc);
+    document.getElementById("hero-image").alt = content[lang].hero_preview_alt;
 
     const cvButtons = [
       document.getElementById("btn-cv"),
@@ -824,8 +872,8 @@
     if (ogTitle) ogTitle.setAttribute("content", t.meta_title);
     const ogDesc = document.querySelector('meta[property="og:description"]');
     if (ogDesc) ogDesc.setAttribute("content", t.meta_desc);
-    const toggleLabel = document.getElementById("menu-toggle")?.querySelector("span");
-    if (toggleLabel) toggleLabel.textContent = t.menu_label;
+    navEl?.setAttribute("aria-label", t.nav_label);
+    document.getElementById("lang-switch")?.setAttribute("aria-label", t.language_label);
     if (topBtn) topBtn.setAttribute("aria-label", t.back_to_top);
   }
 
@@ -887,8 +935,14 @@
           current = section.id;
         }
       });
+      if (window.scrollY > 0 && window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) {
+        current = "contact";
+      }
       navLinks.forEach((link) => {
-        link.classList.toggle("active", link.getAttribute("href") === `#${current}`);
+        const active = link.getAttribute("href") === `#${current}`;
+        link.classList.toggle("active", active);
+        if (active) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
       });
     };
     window.addEventListener("scroll", updateActiveLink, { passive: true });
@@ -927,10 +981,5 @@
     window.addEventListener("resize", () => {
       if (window.innerWidth > 900 && navEl.classList.contains("open")) closeMenu();
     });
-  }
-
-  function setText(id, value) {
-    const el = document.getElementById(id);
-    if (el) el.textContent = value || "";
   }
 })();
